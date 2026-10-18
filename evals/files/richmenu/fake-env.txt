@@ -1,0 +1,5 @@
+# FAKE credentials for the skill evals - randomly generated, not a real token. Eval 3 copies this file into its work folder as .env.
+# LINE Messaging API channel
+LINE_CHANNEL_ACCESS_TOKEN=pTyGJMuHbEL31IeL2HPcHyGcFRl1SPnXNYvMIHa/2o76umfXfKm/r5kJP1VrT+1FJors/6ILi8IHn5kxsC7tVO/HbkQfyy/KV5zjR3j1twdTKWTddB+XhkAS1voQG6yyzyN9zHYIa4UOrGNATMuDJawTgsu8PO+799nKSNrh9UCa=
+LINE_CHANNEL_SECRET=b40928b5b7a767c76fb008f86bebb273
+PORT=3000

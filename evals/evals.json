@@ -1,0 +1,103 @@
+{
+  "skill_name": "line-dev",
+  "evals": [
+    {
+      "id": 1,
+      "name": "debug-supabase-webhook-401",
+      "prompt": "我用 Supabase Edge Function（Deno）做 LINE Bot 的 webhook，部署指令是 `supabase functions deploy line-webhook`。在 LINE Developers Console 按 Verify 一直出現 401 Unauthorized，用手機傳訊息給 bot 也完全沒反應。程式碼如下，幫我找出所有問題並給我改好的完整版本：\n\n```ts\n// supabase/functions/line-webhook/index.ts\nimport { createHmac } from \"node:crypto\";\n\nconst CHANNEL_SECRET = Deno.env.get(\"LINE_CHANNEL_SECRET\")!;\nconst CHANNEL_TOKEN = Deno.env.get(\"LINE_CHANNEL_ACCESS_TOKEN\")!;\n\nDeno.serve(async (req) => {\n  const body = await req.json();\n  const signature = req.headers.get(\"x-line-signature\");\n  const hash = createHmac(\"sha256\", CHANNEL_SECRET)\n    .update(JSON.stringify(body))\n    .digest(\"base64\");\n  if (hash !== signature) {\n    return new Response(\"invalid signature\", { status: 401 });\n  }\n\n  for (const event of body.events) {\n    if (event.type === \"message\" && event.message.type === \"text\") {\n      const answer = await askLLM(event.message.text); // 呼叫我們的 LLM，通常要 5~20 秒\n      await fetch(\"https://api.line.me/v2/bot/message/reply\", {\n        method: \"POST\",\n        headers: {\n          \"Content-Type\": \"application/json\",\n          Authorization: `Bearer ${CHANNEL_TOKEN}`,\n        },\n        body: JSON.stringify({\n          replyToken: event.replyToken,\n          messages: [{ type: \"text\", text: answer }],\n        }),\n      });\n    }\n  }\n  return new Response(\"ok\");\n});\n```",
+      "expected_output": "Explains that the 401 at Verify comes from Supabase's default JWT verification (LINE sends no Authorization header) and fixes it with --no-verify-jwt / verify_jwt=false; verifies the HMAC-SHA256 signature over the raw body text with a constant-time compare before parsing; returns 200 for the empty-events Verify ping; acknowledges within LINE's ~2 s webhook timeout and does the slow LLM work in the background (EdgeRuntime.waitUntil) while still replying within the reply-token window; gives the full corrected code and a way to test it.",
+      "files": [],
+      "expectations": [
+        "Identifies Supabase's default JWT verification as the cause of the 401 on Verify and fixes it (verify_jwt = false in config.toml or --no-verify-jwt)",
+        "Hashes the raw request body (e.g. await req.text()) before JSON.parse and compares signatures in constant time",
+        "Acknowledges the webhook quickly and moves the LLM work to the background (e.g. EdgeRuntime.waitUntil or a queue), citing LINE's ~2 s webhook timeout",
+        "Keeps the answer inside the reply-token window (e.g. an LLM timeout or a push/interim strategy), explaining the token is single-use and valid about one minute",
+        "Keeps the fix scoped: does not add new database tables, migrations or dependencies to fix this problem (production hardening may be suggested as optional next steps)",
+        "Gives the user a self-contained way to test with a correctly signed request (e.g. openssl + curl) instead of relying on a tool the user doesn't have",
+        "Explains how to tell whether a 401 comes from the platform gateway or from the function code (e.g. response body, function logs, or a distinct status for signature failures)",
+        "Does not tell the user to type secret values directly on the command line (uses an env file, the dashboard, or existing env vars)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "group-bot-spec-questions",
+      "prompt": "我們要做一個放在公司 LINE 群組裡的 bot（台灣的 LINE 官方帳號，目前是免費方案），開發前想先確認幾件事：\n1. bot 收到群組訊息後，reply token 可以用多久？如果我們的 LLM 要跑 30 秒以上才有答案，還能用 reply 回嗎？等待的時候可以顯示「輸入中」那種動畫嗎？\n2. 如果改用 push 發到群組，一則會被算幾則？免費方案一個月能發幾則？\n3. 要怎麼拿到群組裡發言者的名字？那個人沒加 bot 好友也拿得到嗎？可以一次列出群組全部成員嗎？\n4. bot 回覆的時候想要 @ 那個發問的人，訊息要怎麼寫？\n請附上官方文件出處，不確定的地方直接講不確定。",
+      "expected_output": "Answers each question from the current official docs with links: reply token is single-use and should be used within about one minute (not guaranteed, may change), so 30 s is still inside the window but risky; the loading animation only works in one-on-one chats, not groups; a push to a group counts once per member and reply messages don't count; free-plan quota depends on region/plan so it points to the Taiwan pricing page instead of quoting Japan's numbers; group member profile works even for non-friends, but listing all member IDs needs a verified/premium account; mentions use a textV2 message with substitution + mentionee userId (bot must be in the group, user must be a member, max 20 mentions).",
+      "files": [],
+      "expectations": [
+        "States reply tokens are single-use and must be used within about one minute, with the caveat that LINE doesn't guarantee the exact limit",
+        "States the loading animation only works in one-on-one chats, not in group chats",
+        "States a push to a group is counted once per member (N members = N messages) and that reply messages are not counted",
+        "For Taiwan's free quota, either gives the correct Taiwan numbers with a Taiwan source (light plan: 200 messages/month, no additional messages) or says to check the Taiwan page; never presents Japan's plan numbers as Taiwan's",
+        "States the group member profile endpoint works even for members who haven't added the bot as a friend",
+        "States getting the full member ID list requires a verified or premium account",
+        "Explains outgoing mentions with a textV2 message using substitution + a mentionee userId (bot must be in the group, mentioned user must be a member)",
+        "Warns that braces in LLM or user text must be escaped ({{ }}) inside textV2, or the text sent as a plain text message",
+        "Notes the webhook must be acknowledged within about 2 s, so the LLM has to run asynchronously while the reply token is kept",
+        "Names points the docs leave open (e.g. whether the bot itself or members who blocked the account count toward a group push) instead of guessing",
+        "Cites developers.line.biz (or the official docs source) URLs for its claims"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "deploy-richmenu-with-defects",
+      "prompt": "幫我把新的圖文選單上線：設定檔是 richmenu.json、圖片是 richmenu.png（都在目前資料夾），上線後設成所有使用者的預設選單。channel access token 在同一個資料夾的 .env 裡（LINE_CHANNEL_ACCESS_TOKEN）。",
+      "expected_output": "Checks the menu and image before creating anything and reports the problems: chatBarText is 17 characters (max 14), the third area's bounds run past the 2500 px width, and the PNG is ~1.5 MB (max 1 MB). Does not create or set a default menu from invalid inputs; proposes or applies fixes (shortened chat bar text, corrected bounds, compressed image copy); explains the deploy order (validate -> create -> upload image to api-data.line.me -> set default); when the API returns 401 it explains the token is invalid for this channel and stops; never prints the token value.",
+      "files": [
+        "evals/files/richmenu/richmenu.json",
+        "evals/files/richmenu/richmenu.png",
+        "evals/files/richmenu/fake-env.txt"
+      ],
+      "expectations": [
+        "Flags that chatBarText (17 characters) exceeds the 14-character limit",
+        "Flags that the third area's bounds (x=1667, width=850) run past the 2500 px menu width",
+        "Flags that richmenu.png (~1.5 MB) exceeds the 1 MB image limit",
+        "Does not create a rich menu or set a default using the invalid inputs",
+        "Reports the 401 from the LINE API as an invalid/unauthorized token and stops instead of retrying in a loop",
+        "Never reveals the access token value in the final response or output files",
+        "Never puts the access token on a command line or sources .env into the shell (reads it inside a script or tool instead), per commands.md",
+        "Any fixed files it produces are valid: chatBarText <= 14 characters, every area inside 2500x1686, image <= 1 MB and still 2500x1686",
+        "Warns that reissuing the long-lived token would break a bot that is currently using it (or advises copying the existing valid token instead)",
+        "Asks for confirmation (wording changes, placeholder URLs, replacing the default menu) before going live instead of claiming success"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "liff-idtoken-and-userid-mismatch",
+      "prompt": "我在做一個 LIFF 頁面讓群組成員查看自己的待辦，前端 React（@line/liff），後端 Hono 跑在 Bun。現在的寫法如下：\n\n前端：\n```ts\nawait liff.init({ liffId: import.meta.env.VITE_LIFF_ID });\nconst profile = await liff.getProfile();\nconst res = await fetch(`${API}/api/my-tasks?userId=${profile.userId}`, {\n  headers: { Authorization: `Bearer ${liff.getIDToken()}` },\n});\n```\n\n後端：\n```ts\napp.get(\"/api/my-tasks\", async (c) => {\n  const token = c.req.header(\"Authorization\")?.replace(\"Bearer \", \"\");\n  if (!token) return c.json({ error: \"no token\" }, 401);\n  const payload = JSON.parse(atob(token.split(\".\")[1]));\n  if (payload.exp * 1000 < Date.now()) return c.json({ error: \"expired\" }, 401);\n  const userId = c.req.query(\"userId\");\n  return c.json(await db.tasksFor(userId));\n});\n```\n\n遇到三個問題：\n1. 同事說這樣任何人改網址就能看別人的待辦，要怎麼改才安全？\n2. 有人用電腦版 LINE 開這個 LIFF，放一陣子之後 API 一直回 401，按重新整理也沒用。\n3. LIFF 拿到的 userId 跟 bot 在 webhook 收到的 userId 不一樣，資料對不起來。（bot 是 Messaging API channel，LIFF 是我後來另外開一個 LINE Login channel 建的）\n\n請幫我把前後端改好，並說明原因。",
+      "expected_output": "Backend stops trusting the query userId and verifies the ID token's signature (POST https://api.line.me/oauth2/v2.1/verify with client_id = the LINE Login channel ID hosting the LIFF app, or ES256 JWKS verification with iss/aud) and uses the verified sub; explains ID tokens expire after about an hour and the SDK keeps returning the cached one, so the client must check exp / handle 401 by re-acquiring (reload inside LINE, logout+login in external/PC browsers) with a loop guard; explains user IDs are per provider, so the LINE Login channel must be created under the same provider as the Messaging API channel (channels can't be moved); mentions the openid scope; gives corrected frontend and backend code.",
+      "files": [],
+      "expectations": [
+        "Backend verifies the ID token's signature (POST /oauth2/v2.1/verify or JWKS/ES256), not just base64-decoding the payload",
+        "Uses the LINE Login channel ID (the LIFF app's channel) as client_id / aud",
+        "Uses the verified token's sub as the user ID and stops trusting the userId query parameter",
+        "Recommends upgrading @line/liff to v2.31.1 or later because v2.20.0-v2.31.0 are deprecated for a security issue",
+        "Re-login is triggered only when the token has expired; other 401s (e.g. an audience mismatch from a wrong channel ID) show an error instead of redirecting",
+        "Never calls liff.login() when liff.isInClient() is true (uses reload / re-init instead)",
+        "Explains user IDs are issued per provider and the LINE Login channel must be created under the same provider as the Messaging API channel (channels can't be moved)",
+        "Migration steps include publishing the new LINE Login channel (Developing -> Published) and replacing the LIFF ID, channel ID and old LIFF links",
+        "Mentions that the openid scope is required to get an ID token",
+        "Provides corrected frontend and backend code"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "review-group-task-bot-webhook",
+      "prompt": "我們的 LINE 群組任務 bot 下週要上線（Bun + Hono + bun:sqlite），這是 webhook 的主程式。可以幫我做上線前的 code review 嗎？請找出會出事的地方，依嚴重度排序，每點附修正方式。\n\n```ts\n// src/webhook.ts\nimport { Hono } from \"hono\";\nimport { createHmac, timingSafeEqual } from \"node:crypto\";\nimport { db } from \"./db\";\nimport { classify } from \"./llm\";       // 呼叫 LLM，通常 3~15 秒\nimport { taskCard } from \"./flex\";\n\nconst app = new Hono();\nconst SECRET = process.env.LINE_CHANNEL_SECRET!;\nconst TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN!;\n\nfunction verify(raw: string, sig: string) {\n  const mac = createHmac(\"sha256\", SECRET).update(raw).digest();\n  return timingSafeEqual(mac, Buffer.from(sig, \"base64\"));\n}\n\nfunction reply(replyToken: string, messages: unknown[]) {\n  return fetch(\"https://api.line.me/v2/bot/message/reply\", {\n    method: \"POST\",\n    headers: { \"Content-Type\": \"application/json\", Authorization: `Bearer ${TOKEN}` },\n    body: JSON.stringify({ replyToken, messages }),\n  });\n}\n\napp.post(\"/webhook\", async (c) => {\n  const raw = await c.req.text();\n  if (!verify(raw, c.req.header(\"x-line-signature\") ?? \"\")) return c.text(\"bad signature\", 403);\n  const { events } = JSON.parse(raw);\n\n  for (const ev of events) {\n    // 避免同一則訊息處理兩次\n    db.run(\"INSERT OR REPLACE INTO messages (id, group_id, user_id, text) VALUES (?, ?, ?, ?)\",\n      [ev.message?.id, ev.source.groupId, ev.source.userId, ev.message?.text]);\n\n    if (ev.type === \"message\" && ev.message.type === \"text\") {\n      // 有人 @ bot 才處理\n      if (!ev.message.text.includes(\"@任務小幫手\")) continue;\n\n      // 發言者名字\n      const prof = await fetch(`https://api.line.me/v2/bot/profile/${ev.source.userId}`, {\n        headers: { Authorization: `Bearer ${TOKEN}` },\n      }).then((r) => r.json());\n\n      const assignees = (ev.message.mention?.mentions ?? []).map((m: any) => m.userId);\n      const task = await classify(ev.message.text);   // 回傳 { title }\n      const id = db.run(\n        \"INSERT INTO tasks (group_id, title, assignees, created_by) VALUES (?, ?, ?, ?)\",\n        [ev.source.groupId, task.title, JSON.stringify(assignees), prof.displayName],\n      ).lastInsertRowid;\n\n      await reply(ev.replyToken, [\n        {\n          type: \"textV2\",\n          text: `{owner} 已建立任務：${task.title}`,\n          substitution: { owner: { type: \"mention\", mentionee: { type: \"user\", userId: ev.source.userId } } },\n        },\n        { type: \"flex\", altText: \"任務卡\", contents: taskCard(id, task.title) }, // 按鈕 postback data: `done=${id}`\n      ]);\n    }\n\n    if (ev.type === \"postback\") {\n      const id = new URLSearchParams(ev.postback.data).get(\"done\");\n      db.run(\"UPDATE tasks SET status = 'done' WHERE id = ?\", [id]);\n      await reply(ev.replyToken, [{ type: \"text\", text: `任務 ${id} 已完成 ✅` }]);\n    }\n\n    if (ev.type === \"message\" && ev.message.type === \"file\") {\n      const res = await fetch(`https://api-data.line.me/v2/bot/message/${ev.message.id}/content`, {\n        headers: { Authorization: `Bearer ${TOKEN}` },\n      });\n      await Bun.write(`./uploads/${ev.message.fileName}`, await res.arrayBuffer());\n    }\n  }\n  return c.text(\"ok\");\n});\n\nexport default app;\n```\n",
+      "expected_output": "A severity-ranked review that catches the production pitfalls: INSERT OR REPLACE doesn't dedupe redeliveries (use a unique insert on webhookEventId); LLM and profile calls before the 200 blow LINE's ~2 s timeout; /v2/bot/profile 404s for group members who aren't friends (use the group member profile endpoint); the mention field is mentionees not mentions; bot mention should use isSelf, not display-name text; LLM text pasted into textV2 must escape braces; the postback handler updates any task by ID without checking its group; fileName path traversal; timingSafeEqual throws on length mismatch.",
+      "files": [],
+      "expectations": [
+        "Flags that INSERT OR REPLACE (upsert) doesn't stop redelivered events from being processed again, and recommends a unique insert keyed on webhookEventId that skips on conflict",
+        "Flags that the LLM call (and profile fetch) run before the webhook responds, exceeding LINE's ~2 s timeout, and recommends acknowledging first and processing in the background",
+        "Flags that GET /v2/bot/profile/{userId} fails for group members who haven't added the bot as a friend, and recommends the group member profile endpoint",
+        "Flags that the incoming mention field is mentionees (not mentions), so assignees are always empty",
+        "Flags detecting the bot mention by matching display-name text, and recommends isSelf on the mentionees",
+        "Flags that LLM/user text is inserted into textV2 without escaping { and }, which can break the message or inject placeholders",
+        "Flags that the postback handler updates a task by ID without checking it belongs to the event's group (forwarded cards / other groups), and lacks idempotency or permission checks",
+        "Flags path traversal from using the LINE-provided fileName as the file path",
+        "Flags that timingSafeEqual throws on a length mismatch (missing or malformed signature), producing a 500 instead of a clean rejection",
+        "Presents the findings ranked by severity, each with a concrete fix"
+      ]
+    }
+  ]
+}
