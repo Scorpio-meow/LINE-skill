@@ -1,5 +1,7 @@
 # LINE-skill
 
+**繁體中文** | [English](README.en.md) | [日本語](README.ja.md) | [ไทย](README.th.md) | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md)
+
 給 AI 程式助理用的 Agent Skill：**`line-dev`**。讓 Claude、Codex、GitHub Copilot、Cursor、Gemini CLI 等工具在開發、除錯、操作 LINE 平台時更可靠——Messaging API webhook、reply／push 與訊息額度、Flex Message、圖文選單（Rich Menu）、群組機器人、LIFF、LINE Login。
 
 採用 [Agent Skills](https://agentskills.io) 開放格式（一個資料夾＋`SKILL.md`），支援這個格式的工具都能用，安裝方式見[快速開始](#快速開始)。
