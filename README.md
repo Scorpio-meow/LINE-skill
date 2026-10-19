@@ -216,7 +216,7 @@ evals/                            # 開發這個 skill 用的測試情境
 
 `evals/evals.json` 是開發這個 skill 用的 5 個測試情境：webhook 401 除錯、群組 bot 規格查詢、圖文選單上線、LIFF 身分驗證、群組 bot code review，共 49 條評分標準。`evals/files/richmenu/` 是故意埋了錯誤的圖文選單素材；`fake-env.txt` 是隨機產生的假 token，跑第 3 題時複製到工作資料夾並改名成 `.env`（題目說 token 在 `.env` 裡）。
 
-最近一次比較（Claude Opus 5.5，每個情境有／沒有 skill 各跑一次，盲評）：有 skill 通過 47/49、沒 skill 44/49；有 skill 平均快 16%。差距最大的是 LIFF（LIFF SDK 已棄用版本的資安提醒、只在 token 過期時重新登入）與圖文選單上線（token 不放上命令列、上線前先確認）。
+最近一次比較（Claude Opus 5.5，每個情境有／沒有 skill 各跑一次，盲評）：有 skill 通過 47/49、沒 skill 44/49；有 skill 平均快 16%。差距最大的是 LIFF（LIFF SDK 已棄用版本的資安提醒、只在 token 過期時重新登入）與圖文選單上線（token 不放上命令列、上線前先確認）。之後針對沒過的兩條修改 skill，重跑第 1、5 題都全過，五題合計有 skill 49/49。觸發測試（10 句該用、10 句相近但不該用，每句 3 次）全部判斷正確。
 
 ## 授權
 

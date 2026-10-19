@@ -129,7 +129,9 @@ the platform allows.
 
 **Secrets.** Set them from a file or the dashboard (`supabase secrets set --env-file supabase/.env`,
 `wrangler secret put`), not as values typed on a command line (shell history). A local `.env` is not
-deployed. `KEY=` sets an empty string (so `?? default` doesn't apply, `Number("")` is 0) - comment unused keys
+deployed - and not ignored by git unless you add it: the `.gitignore` that `supabase init` writes covers only
+`.env.local`, `.env.*.local` and `.env.keys` (at the time of writing), so tell the user to add the secrets file
+before committing. `KEY=` sets an empty string (so `?? default` doesn't apply, `Number("")` is 0) - comment unused keys
 out. A secret stored in two places (function env + DB vault used by cron) silently 403s when they drift - set
 both from one generated value and compare digests. A missing LIFF URL silently produces cards without
 buttons - fail loudly at startup when required settings are missing.
