@@ -48,9 +48,37 @@ def _setup_stdout():
 
 
 def cache_dir():
-    d = Path(os.environ.get("LINE_DOCS_CACHE") or Path(tempfile.gettempdir()) / "line-docs-cache")
+    # Location follows the OS temp dir (TMPDIR / TEMP), so it never comes from command-line input.
+    d = Path(tempfile.gettempdir()) / "line-docs-cache"
     d.mkdir(parents=True, exist_ok=True)
     return d
+
+
+# A docs path is lowercase slug segments only: rejects '..', absolute paths, drive letters and backslashes.
+REL = re.compile(r"(en|ja)/(docs|reference)(/[a-z0-9][a-z0-9_-]*)+")
+SLUG = re.compile(r"[a-z0-9][a-z0-9_-]*")
+
+
+def slug(value):
+    """argparse type for --product: a single path segment."""
+    if not SLUG.fullmatch(value):
+        raise argparse.ArgumentTypeError(f"invalid product name: {value!r}")
+    return value
+
+
+def check_rel(rel):
+    if not REL.fullmatch(rel):
+        sys.exit(f"Invalid docs path: {rel!r} (expected something like messaging-api/pricing)")
+    return rel
+
+
+def inside(base, *parts):
+    """Join parts onto base and refuse anything that resolves outside base."""
+    root = os.path.realpath(base)
+    full = os.path.realpath(os.path.join(root, *parts))
+    if full.startswith(root + os.sep):
+        return Path(full)
+    sys.exit(f"Refusing path outside {root}: {os.path.join(*parts)}")
 
 
 def fresh(p, refresh):
@@ -64,7 +92,8 @@ def not_in_mirror(where):
 
 def fetch_raw(rel, refresh=False):
     """rel like 'en/reference/messaging-api' or 'en/docs/messaging-api/pricing' -> text."""
-    target = cache_dir() / "raw" / (rel.replace("/", "__") + ".md")
+    check_rel(rel)
+    target = inside(cache_dir(), "raw", rel.replace("/", "__") + ".md")
     if fresh(target, refresh):
         return target.read_text(encoding="utf-8")
     url = f"{RAW}/{rel}/index.html.md"
@@ -86,7 +115,7 @@ def fetch_raw(rel, refresh=False):
     # network allowlist): the same file is in the git mirror.
     clone = ensure_clone(rel.split("/", 1)[0], refresh)
     if clone:
-        f = clone / "docs" / rel / "index.html.md"
+        f = inside(clone, "docs", *rel.split("/"), "index.html.md")
         if not f.exists():
             not_in_mirror(f"{rel} (looked in the git mirror because: {problem})")
         print(f"({problem}; using the git mirror of the same docs instead)", file=sys.stderr)
@@ -125,7 +154,7 @@ def anchor_index(lang, product, clone):
         return idx
     pat = re.compile(r"\[([^\]]{2,120})\]\(https://developers\.line\.biz/%s/reference/%s/#([a-z0-9-]+)\)"
                      % (lang, re.escape(product)))
-    for f in (clone / "docs" / lang).rglob("*.md"):
+    for f in inside(clone, "docs", lang).rglob("*.md"):
         try:
             for text, anchor in pat.findall(f.read_text(encoding="utf-8", errors="ignore")):
                 idx.setdefault(text.strip().strip("`").lower(), anchor)
@@ -174,7 +203,7 @@ def ensure_clone(lang, refresh=False):
     except (subprocess.SubprocessError, OSError) as e:
         print(f"(git mirror unavailable: {e})", file=sys.stderr)
         return None
-    return d if (d / "docs" / lang).exists() else None
+    return d if inside(d, "docs", lang).exists() else None
 
 
 def rel_of(path, clone):
@@ -189,7 +218,7 @@ def cmd_search(a):
     clone = ensure_clone(a.lang, a.refresh)
     hits = 0
     if clone:
-        files = sorted((clone / "docs" / a.lang).rglob("index.html.md"))
+        files = sorted(inside(clone, "docs", a.lang).rglob("index.html.md"))
         # reference pages first, then guides; skip release notes noise unless asked
         files.sort(key=lambda p: (0 if "/reference/" in p.as_posix() else 1, p.as_posix()))
         for f in files:
@@ -313,7 +342,7 @@ def main(argv=None):
     _setup_stdout()
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument("--lang", default="en", choices=["en", "ja"])
-    common.add_argument("--product", default="messaging-api",
+    common.add_argument("--product", default="messaging-api", type=slug,
                         help="reference product: messaging-api, liff, liff-server, line-login, line-login-v2, "
                              "line-mini-app, line-notification-messages, partner-docs")
     common.add_argument("--refresh", action="store_true", help="ignore the one-day cache")
