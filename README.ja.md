@@ -121,7 +121,7 @@ Copy-Item -Recurse -Force LINE-skill\skills\line-dev "$TARGET\"
 ### Claude アプリ（Web 版／デスクトップ版）
 
 1. コード実行を有効にします。Pro・Max プランは **Settings > Capabilities** で「Code execution and file creation」をオンにします。Team・Enterprise プランは、組織のオーナーが組織設定で「Code execution and file creation」と「Skills」をオンにします。
-2. [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest) から `line-dev.zip` をダウンロードします。自分でパッケージ化することもできますが、ZIP の最上位は `line-dev/` フォルダーである必要があります。GitHub の「Download ZIP」はリポジトリ全体（最上位が `LINE-skill-main/`）なので、そのままではアップロードできません。
+2. `line-dev.zip` を自分で作成します。ZIP の最上位は `line-dev/` フォルダーである必要があります。GitHub の「Download ZIP」はリポジトリ全体（最上位が `LINE-skill-main/`）なので、そのままではアップロードできません。展開するかリポジトリを clone してから、`line-dev` フォルダーだけを圧縮してください。
    - macOS／Linux：`LINE-skill/skills` フォルダーで `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'` を実行します。
    - Windows：エクスプローラーで `skills\line-dev` フォルダーを右クリック →「ZIP ファイルに圧縮する」（Windows 10 では「送る → 圧縮 (zip 形式) フォルダー」）。
 3. **Customize > Skills** で **+** → **Create skill** → **Upload a skill** を選び、ZIP をアップロードします。画面が **Settings > Capabilities** の場合は、Skills セクションの **Upload skill** をクリックします。
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # Messaging API 操作 CLI（dry-run 優先）
     └── webhook_tools.py          # 署名の計算・検証、LINE からの Webhook 送信を模擬、ワンコマンドの selftest
 evals/                            # この skill の開発に使ったテストシナリオ
+.github/                          # コミュニティ文書（コントリビューションガイド、行動規範、セキュリティポリシー、アクセシビリティ方針）と issue／PR テンプレート
 ```
 
 ## 安全設計
@@ -219,6 +220,15 @@ evals/                            # この skill の開発に使ったテスト�
 `evals/evals.json` は、この skill の開発に使った 5 つのテストシナリオです：Webhook の 401 のデバッグ、グループボットの仕様確認、リッチメニューの公開、LIFF でのユーザー認証、グループボットのコードレビュー。採点基準は合計 49 項目です。`evals/files/richmenu/` はわざとエラーを仕込んだリッチメニューの素材です。`fake-env.txt` はランダムに生成した偽の token で、シナリオ 3 を実行するときは作業フォルダーにコピーして `.env` に名前を変えてください（問題文で token が `.env` にあるとしているため）。
 
 直近の比較（Claude Opus 5.5、各シナリオを skill あり／なしで 1 回ずつ実行、ブラインド採点）：skill ありは 47/49、skill なしは 44/49 で、skill ありのほうが平均 16% 速く完了しました。差が最も大きかったのは LIFF（非推奨バージョンの LIFF SDK に関するセキュリティ上の注意、token が失効したときだけ再ログインする）と、リッチメニューの公開（token をコマンドラインに載せない、公開前に確認する）です。その後、通らなかった 2 項目に合わせて skill を修正し、シナリオ 1 と 5 を再実行したところすべて合格し、5 シナリオ合計で skill ありは 49/49 になりました。トリガーテスト（使うべき 10 文と、似ているが使うべきでない 10 文を各 3 回）はすべて正しく判定されました。
+
+## コントリビューション
+
+古くなった LINE の仕様の報告、落とし穴の追加、スクリプトやドキュメントの改善を歓迎します。
+
+- 流れ、skill の方針、変更の確認方法：[コントリビューションガイド](.github/CONTRIBUTING.ja.md)
+- [行動規範](.github/i18n/CODE_OF_CONDUCT.ja.md)
+- セキュリティの脆弱性は公開の issue にせず、[セキュリティポリシー](.github/SECURITY.ja.md)に従って非公開で報告してください。
+- アクセシビリティの状況と既知の制限：[アクセシビリティ方針](.github/ACCESSIBILITY.ja.md)
 
 ## ライセンス
 

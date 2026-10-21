@@ -4,7 +4,7 @@
 
 ## Versi yang didukung
 
-Perbaikan hanya dilakukan untuk versi terbaru: branch `main` dan [Release](https://github.com/Scorpio-meow/LINE-skill/releases/latest) terbaru. Jika Anda memakai versi lama, perbarui dulu (caranya ada di [README](/README.id.md#memperbarui-dan-menghapus)).
+Perbaikan hanya dilakukan untuk versi terbaru, yaitu branch `main`. Jika Anda memakai versi lama, perbarui dulu (caranya ada di [README](/README.id.md#memperbarui-dan-menghapus)).
 
 ## Melaporkan celah keamanan
 
@@ -12,7 +12,7 @@ Perbaikan hanya dilakukan untuk versi terbaru: branch `main` dan [Release](https
 
 Sertakan:
 
-- File dan versi yang terdampak (commit atau Release)
+- File dan versi yang terdampak (commit)
 - Langkah untuk mereproduksi, serta dampak yang ditimbulkan
 - Usulan perbaikan (opsional)
 

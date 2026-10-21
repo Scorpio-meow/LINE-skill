@@ -121,7 +121,7 @@ Copy-Item -Recurse -Force LINE-skill\skills\line-dev "$TARGET\"
 ### แอป Claude (เว็บ/เดสก์ท็อป)
 
 1. เปิดการรันโค้ด: แผน Pro และ Max ไปที่ **Settings > Capabilities** แล้วเปิด "Code execution and file creation" ส่วนแผน Team และ Enterprise เจ้าของ (owner) องค์กรต้องเปิด "Code execution and file creation" และ "Skills" ในการตั้งค่าองค์กร
-2. ดาวน์โหลด `line-dev.zip` จาก [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest) จะบีบอัดเองก็ได้ แต่ชั้นบนสุดของ ZIP ต้องเป็นโฟลเดอร์ `line-dev/` ส่วน "Download ZIP" ของ GitHub จะได้ทั้ง repo (ชั้นบนสุดคือ `LINE-skill-main/`) ซึ่งอัปโหลดตรง ๆ ไม่ได้
+2. บีบอัด `line-dev.zip` เอง ชั้นบนสุดของ ZIP ต้องเป็นโฟลเดอร์ `line-dev/` ส่วน "Download ZIP" ของ GitHub จะได้ทั้ง repo (ชั้นบนสุดคือ `LINE-skill-main/`) ซึ่งอัปโหลดตรง ๆ ไม่ได้ ให้แตกไฟล์หรือ clone repo ก่อน แล้วบีบอัดเฉพาะโฟลเดอร์ `line-dev`
    - macOS/Linux: ในโฟลเดอร์ `LINE-skill/skills` ให้รัน `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'`
    - Windows: ใน File Explorer คลิกขวาที่โฟลเดอร์ `skills\line-dev` → "Compress to ZIP file" (บีบอัดเป็นไฟล์ ZIP; บน Windows 10 คือ "Send to → Compressed (zipped) folder")
 3. ไปที่ **Customize > Skills** กด **+** → **Create skill** → **Upload a skill** แล้วอัปโหลด ZIP ถ้าหน้าจอเป็น **Settings > Capabilities** ให้กด **Upload skill** ในส่วน Skills
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # CLI สำหรับ Messaging API (dry-run ก่อนเสมอ)
     └── webhook_tools.py          # คำนวณ/ตรวจลายเซ็น, จำลอง LINE ยิง webhook, selftest ในคำสั่งเดียว
 evals/                            # สถานการณ์ทดสอบที่ใช้พัฒนา skill นี้
+.github/                          # เอกสารชุมชน (แนวทางการมีส่วนร่วม, จรรยาบรรณ, นโยบายความปลอดภัย, คำแถลงด้านการเข้าถึง) และเทมเพลต issue/PR
 ```
 
 ## การออกแบบด้านความปลอดภัย
@@ -219,6 +220,15 @@ evals/                            # สถานการณ์ทดสอบ�
 `evals/evals.json` คือสถานการณ์ทดสอบ 5 ข้อที่ใช้พัฒนา skill นี้ ได้แก่ ดีบัก webhook 401, ค้นสเปกของบอทกลุ่ม, เผยแพร่ริชเมนู, การยืนยันตัวตนผู้ใช้ใน LIFF และ code review ของบอทกลุ่ม รวมเกณฑ์ให้คะแนน 49 ข้อ `evals/files/richmenu/` คือไฟล์ริชเมนูที่จงใจใส่ข้อผิดพลาดไว้ ส่วน `fake-env.txt` คือ token ปลอมที่สร้างแบบสุ่ม เมื่อรันข้อ 3 ให้คัดลอกไปไว้ในโฟลเดอร์ทำงานแล้วเปลี่ยนชื่อเป็น `.env` (โจทย์ระบุว่า token อยู่ใน `.env`)
 
 การเปรียบเทียบครั้งล่าสุด (Claude Opus 5.5 รันแต่ละสถานการณ์แบบมีและไม่มี skill อย่างละครั้ง ให้คะแนนแบบ blind): แบบมี skill ผ่าน 47/49 แบบไม่มี skill ผ่าน 44/49 และแบบมี skill เร็วกว่าเฉลี่ย 16% จุดที่ต่างกันมากที่สุดคือ LIFF (คำเตือนด้านความปลอดภัยเรื่อง LIFF SDK เวอร์ชันที่เลิกใช้แล้ว และล็อกอินใหม่เฉพาะเมื่อ token หมดอายุ) กับการเผยแพร่ริชเมนู (ไม่ใส่ token ในบรรทัดคำสั่ง และยืนยันก่อนเผยแพร่) หลังจากแก้ skill ตาม 2 เกณฑ์ที่ไม่ผ่าน แล้วรันข้อ 1 และ 5 ใหม่ ก็ผ่านทั้งหมด รวม 5 ข้อแบบมี skill ได้ 49/49 ส่วนการทดสอบการเรียกใช้ skill (10 ประโยคที่ควรใช้ และ 10 ประโยคคล้ายกันที่ไม่ควรใช้ ประโยคละ 3 ครั้ง) ตัดสินถูกทั้งหมด
+
+## การมีส่วนร่วม
+
+ยินดีรับการแจ้งสเปก LINE ที่ล้าสมัย การเพิ่มกับดัก และการปรับปรุงสคริปต์หรือเอกสาร
+
+- ขั้นตอน หลักการของ skill และวิธีตรวจการเปลี่ยนแปลง: [แนวทางการมีส่วนร่วม](.github/CONTRIBUTING.th.md)
+- [จรรยาบรรณ](.github/i18n/CODE_OF_CONDUCT.th.md)
+- ช่องโหว่ด้านความปลอดภัยให้แจ้งแบบส่วนตัวตาม[นโยบายความปลอดภัย](.github/SECURITY.th.md) อย่าเปิด issue สาธารณะ
+- สถานะด้านการเข้าถึงและข้อจำกัดที่ทราบ: [คำแถลงด้านการเข้าถึง](.github/ACCESSIBILITY.th.md)
 
 ## สัญญาอนุญาต
 

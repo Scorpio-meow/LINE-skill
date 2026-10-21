@@ -121,7 +121,7 @@ Some tools have their own install commands:
 ### Claude apps (web/desktop)
 
 1. Turn on code execution: on Pro and Max plans, go to **Settings > Capabilities** and turn on "Code execution and file creation"; on Team and Enterprise plans, an organization owner turns on "Code execution and file creation" and "Skills" in the organization settings.
-2. Download `line-dev.zip` from [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest). You can also package it yourself, but the top level of the ZIP must be the `line-dev/` folder; GitHub's "Download ZIP" gives you the whole repo (top level `LINE-skill-main/`), which can't be uploaded as is.
+2. Package `line-dev.zip` yourself. The top level of the ZIP must be the `line-dev/` folder; GitHub's "Download ZIP" gives you the whole repo (top level `LINE-skill-main/`), which can't be uploaded as is, so extract it or clone the repo first, then zip only the `line-dev` folder.
    - macOS/Linux: in the `LINE-skill/skills` folder, run `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'`.
    - Windows: in File Explorer, right-click the `skills\line-dev` folder → "Compress to ZIP file" (on Windows 10, "Send to → Compressed (zipped) folder").
 3. Go to **Customize > Skills**, click **+** → **Create skill** → **Upload a skill**, and upload the ZIP. If your interface shows **Settings > Capabilities** instead, click **Upload skill** in the Skills section.
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # Messaging API CLI (dry-run first)
     └── webhook_tools.py          # Compute/verify signatures, simulate LINE calling your webhook, one-shot selftest
 evals/                            # Test scenarios used to develop this skill
+.github/                          # Community docs (contributing, code of conduct, security, accessibility) and issue/PR templates
 ```
 
 ## Safety
@@ -219,6 +220,15 @@ Official documentation this skill draws on: [LINE Developers](https://developers
 `evals/evals.json` holds the 5 test scenarios used to develop this skill — debugging a webhook 401, looking up group-bot specs, publishing a rich menu, LIFF user authentication, and a code review of a group bot — with 49 grading criteria in total. `evals/files/richmenu/` is rich menu material with deliberately planted errors; `fake-env.txt` is a randomly generated fake token: when running scenario 3, copy it into the working folder and rename it to `.env` (the prompt says the token is in `.env`).
 
 Most recent comparison (Claude Opus 5.5, one run per scenario with and without the skill, graded blind): 47/49 with the skill, 44/49 without; 16% faster on average with the skill. The biggest gaps were LIFF (a security warning about deprecated LIFF SDK versions, and re-logging in only when the token has expired) and publishing a rich menu (keeping the token off the command line, confirming before going live). After revising the skill for the two failed criteria, scenarios 1 and 5 were re-run and passed in full, for 49/49 across all five with the skill. The trigger test (10 prompts that should trigger the skill and 10 similar ones that shouldn't, 3 runs each) was judged correctly every time.
+
+## Contributing
+
+Reports of outdated LINE specs, new gotchas, and improvements to the scripts and docs are welcome.
+
+- Workflow, the skill's principles and how to check your changes: [Contributing guide](.github/CONTRIBUTING.en.md)
+- [Code of Conduct](.github/i18n/CODE_OF_CONDUCT.en.md)
+- Report security vulnerabilities privately as described in the [security policy](.github/SECURITY.en.md); don't open a public issue.
+- Accessibility status and known limitations: [Accessibility statement](.github/ACCESSIBILITY.en.md)
 
 ## License
 

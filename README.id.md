@@ -121,7 +121,7 @@ Beberapa alat punya perintah pemasangan sendiri:
 ### Aplikasi Claude (web/desktop)
 
 1. Aktifkan eksekusi kode: untuk paket Pro dan Max, buka **Settings > Capabilities** lalu aktifkan "Code execution and file creation"; untuk paket Team dan Enterprise, pemilik organisasi mengaktifkan "Code execution and file creation" dan "Skills" di pengaturan organisasi.
-2. Unduh `line-dev.zip` dari [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest). Anda juga bisa membuat ZIP sendiri, tetapi tingkat teratas ZIP harus folder `line-dev/`; "Download ZIP" dari GitHub berisi seluruh repo (tingkat teratas `LINE-skill-main/`) sehingga tidak bisa langsung diunggah.
+2. Buat `line-dev.zip` sendiri. Tingkat teratas ZIP harus folder `line-dev/`; "Download ZIP" dari GitHub berisi seluruh repo (tingkat teratas `LINE-skill-main/`) sehingga tidak bisa langsung diunggah, jadi ekstrak dulu atau clone repo, lalu kompres folder `line-dev` saja.
    - macOS/Linux: di folder `LINE-skill/skills`, jalankan `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'`.
    - Windows: di File Explorer, klik kanan folder `skills\line-dev` → "Compress to ZIP file" (di Windows 10: "Send to → Compressed (zipped) folder").
 3. Buka **Customize > Skills**, klik **+** → **Create skill** → **Upload a skill**, lalu unggah ZIP. Jika antarmuka Anda menampilkan **Settings > Capabilities**, klik **Upload skill** di bagian Skills.
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # CLI Messaging API (dry-run terlebih dahulu)
     └── webhook_tools.py          # Hitung/verifikasi tanda tangan, simulasikan LINE memanggil webhook, selftest sekali jalan
 evals/                            # Skenario uji yang dipakai untuk mengembangkan skill ini
+.github/                          # Dokumen komunitas (panduan kontribusi, kode etik, kebijakan keamanan, pernyataan aksesibilitas) dan templat issue/PR
 ```
 
 ## Keamanan
@@ -219,6 +220,15 @@ Sumber dokumentasi resmi yang dirujuk skill ini: [LINE Developers](https://devel
 `evals/evals.json` berisi 5 skenario uji yang dipakai untuk mengembangkan skill ini — debug webhook 401, mencari spesifikasi bot grup, menerbitkan rich menu, autentikasi pengguna LIFF, dan code review bot grup — dengan total 49 kriteria penilaian. `evals/files/richmenu/` berisi materi rich menu yang sengaja diberi kesalahan; `fake-env.txt` adalah token palsu yang dibuat secara acak: saat menjalankan skenario 3, salin ke folder kerja dan ganti namanya menjadi `.env` (soal menyebut token ada di `.env`).
 
 Perbandingan terbaru (Claude Opus 5.5, setiap skenario dijalankan sekali dengan dan tanpa skill, dinilai secara blind): dengan skill lulus 47/49, tanpa skill 44/49; dengan skill rata-rata 16% lebih cepat. Selisih terbesar ada pada LIFF (peringatan keamanan tentang versi LIFF SDK yang sudah deprecated, dan login ulang hanya saat token kedaluwarsa) dan penerbitan rich menu (tidak menaruh token di baris perintah, konfirmasi sebelum diterbitkan). Setelah skill direvisi untuk dua kriteria yang gagal, skenario 1 dan 5 dijalankan ulang dan lulus seluruhnya, sehingga total kelima skenario dengan skill menjadi 49/49. Uji pemicu (10 kalimat yang seharusnya memicu skill dan 10 kalimat mirip yang tidak seharusnya, masing-masing 3 kali) semuanya dinilai benar.
+
+## Berkontribusi
+
+Laporan spesifikasi LINE yang sudah usang, jebakan baru, dan perbaikan skrip maupun dokumentasi sangat diterima.
+
+- Alur kerja, prinsip skill, dan cara memeriksa perubahan: [Panduan kontribusi](.github/CONTRIBUTING.id.md)
+- [Kode Etik](.github/i18n/CODE_OF_CONDUCT.id.md)
+- Laporkan celah keamanan secara privat sesuai [kebijakan keamanan](.github/SECURITY.id.md); jangan membuka issue publik.
+- Status aksesibilitas dan keterbatasan yang diketahui: [Pernyataan aksesibilitas](.github/ACCESSIBILITY.id.md)
 
 ## Lisensi
 

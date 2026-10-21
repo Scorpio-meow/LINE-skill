@@ -1,0 +1,46 @@
+# LINE-skill
+
+> An Agent Skill (`line-dev`) that makes AI coding assistants reliable at LINE platform development: Messaging API webhooks, reply/push and the message quota, Flex Messages, rich menus, group-chat bots, LIFF and LINE Login. It looks up the live official docs instead of bundling copies, ships field-tested gotchas, and includes dry-run-first scripts for operating the Messaging API. Not an official LY Corporation project.
+
+The skill is in the Agent Skills format: a `skills/line-dev/` folder holding `SKILL.md` (English, written for the AI), `references/` (an official-docs index and gotchas by topic) and `scripts/` (Python 3.8+, standard library only).
+
+Key concepts:
+
+- Verify LINE facts against the live docs: limits, quotas, pricing and event behaviour change often, so the skill looks them up with `line_docs.py` and cites developers.line.biz.
+- Build, review and debug: the smallest fix that works, guided by gotchas written as symptom, cause, fix and the docs page to re-check.
+- Operate the API: `line_api.py` runs read-only and validation commands freely; writes (push, broadcast, webhook URL, rich menu deploy) are dry runs until `--yes`.
+- Tokens and secrets are read only from environment variables or `--env-file` and are never printed.
+
+## Skill
+
+- [SKILL.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/SKILL.md): The skill itself: the verify-against-live-docs rule, a mental model of the platform, how to build, review and debug, how to answer spec questions, and the safety tiers for operating the API
+- [doc-map.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/doc-map.md): Where everything is in the official docs: URL patterns, page list, API reference anchors, OpenAPI specs, status page and deprecations
+- [webhooks-and-hosting.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/webhooks-and-hosting.md): Gotchas for webhooks, signatures, slow work and hosting (Supabase, Vercel, Workers)
+- [messaging.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/messaging.md): Gotchas for reply vs push, the quota, Flex Messages, postbacks, media, long text, quotes and unsend
+- [groups-and-mentions.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/groups-and-mentions.md): Gotchas for group chats, members and profiles, lifecycle events and mentions (textV2)
+- [rich-menus.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/rich-menus.md): Gotchas for rich menus
+- [liff-and-login.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/liff-and-login.md): Gotchas for LIFF and LINE Login: SDK versions, ID-token verification, expiry and re-login, provider and userId
+- [security-and-architecture.md](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/references/gotchas/security-and-architecture.md): Gotchas for tokens and security, LLM-bot architecture patterns and testing
+- [line_docs.py](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/scripts/line_docs.py): Live official-docs lookup: full-text search, API reference sections and guide pages, each with a citable URL
+- [line_api.py](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/scripts/line_api.py): Messaging API CLI with dry-run-first writes and an automatic `X-Line-Retry-Key`
+- [webhook_tools.py](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/skills/line-dev/scripts/webhook_tools.py): Signature computation and verification, sample events, a webhook simulator and a one-shot `selftest`
+
+## Usage
+
+- [README](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.en.md): Installation with `bunx skills`, each tool's own installer or by hand for Claude Code, the Claude apps, ChatGPT, OpenAI Codex, GitHub Copilot, Cursor, Gemini CLI, Google Antigravity, Devin Desktop, OpenCode, Cline, Kiro, JetBrains Junie and Roo Code, plus updating and removing, and script examples
+
+## Evaluation
+
+- [Eval set](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/evals/evals.json): Five task prompts (webhook 401 debugging, group-bot spec questions, rich menu deployment, LIFF authentication, group-bot code review) and the 49 criteria each answer is graded against
+
+## Optional
+
+- [Contributing guide](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/CONTRIBUTING.en.md): The skill's principles, how to check changes and how to keep the six language versions in sync
+- [Security policy](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/SECURITY.en.md): What counts as a vulnerability and how to report it privately
+- [Changelog](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/CHANGELOG.md): Change history (Traditional Chinese)
+- [README in Traditional Chinese](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.md)
+- [README in Japanese](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.ja.md)
+- [README in Thai](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.th.md)
+- [README in Indonesian](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.id.md)
+- [README in Korean](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.ko.md)
+- [License](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/LICENSE): MIT

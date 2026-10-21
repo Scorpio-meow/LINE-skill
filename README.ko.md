@@ -121,7 +121,7 @@ Copy-Item -Recurse -Force LINE-skill\skills\line-dev "$TARGET\"
 ### Claude 앱(웹/데스크톱)
 
 1. 코드 실행을 켭니다. Pro, Max 플랜은 **Settings > Capabilities**에서 "Code execution and file creation"을 켭니다. Team, Enterprise 플랜은 조직 소유자가 조직 설정에서 "Code execution and file creation"과 "Skills"를 켭니다.
-2. [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest)에서 `line-dev.zip`을 내려받습니다. 직접 압축해도 되지만 ZIP의 최상위는 `line-dev/` 폴더여야 합니다. GitHub의 "Download ZIP"은 저장소 전체(최상위가 `LINE-skill-main/`)라서 그대로는 업로드할 수 없습니다.
+2. `line-dev.zip`을 직접 만듭니다. ZIP의 최상위는 `line-dev/` 폴더여야 합니다. GitHub의 "Download ZIP"은 저장소 전체(최상위가 `LINE-skill-main/`)라서 그대로는 업로드할 수 없으니, 압축을 풀거나 저장소를 clone한 뒤 `line-dev` 폴더만 압축하세요.
    - macOS/Linux: `LINE-skill/skills` 폴더에서 `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'`를 실행합니다.
    - Windows: 파일 탐색기에서 `skills\line-dev` 폴더를 마우스 오른쪽 버튼으로 클릭 → "ZIP 파일로 압축"(Windows 10은 "보내기 → 압축(ZIP) 폴더").
 3. **Customize > Skills**에서 **+** → **Create skill** → **Upload a skill**을 눌러 ZIP을 업로드합니다. 화면이 **Settings > Capabilities**라면 Skills 섹션에서 **Upload skill**을 누릅니다.
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # Messaging API 조작 CLI(dry-run 우선)
     └── webhook_tools.py          # 서명 계산/검증, LINE의 웹훅 호출 시뮬레이션, 명령 하나로 끝나는 selftest
 evals/                            # 이 skill 개발에 쓴 테스트 시나리오
+.github/                          # 커뮤니티 문서(기여 가이드, 행동 강령, 보안 정책, 접근성 선언)와 issue/PR 템플릿
 ```
 
 ## 안전 설계
@@ -219,6 +220,15 @@ evals/                            # 이 skill 개발에 쓴 테스트 시나리�
 `evals/evals.json`은 이 skill을 개발하며 사용한 5가지 테스트 시나리오입니다. 웹훅 401 디버깅, 그룹 봇 스펙 조회, 리치 메뉴 게시, LIFF 사용자 인증, 그룹 봇 코드 리뷰로 구성되며 평가 기준은 총 49개입니다. `evals/files/richmenu/`는 일부러 오류를 넣어 둔 리치 메뉴 소재입니다. `fake-env.txt`는 무작위로 생성한 가짜 token으로, 시나리오 3을 실행할 때 작업 폴더에 복사하고 이름을 `.env`로 바꾸세요(문제에서 token이 `.env`에 있다고 설명함).
 
 최근 비교(Claude Opus 5.5, 시나리오마다 skill 있음/없음으로 한 번씩 실행, 블라인드 채점): skill 있음 47/49, skill 없음 44/49였고, skill이 있을 때 평균 16% 더 빨랐습니다. 차이가 가장 컸던 것은 LIFF(지원 중단된 LIFF SDK 버전에 대한 보안 경고, token이 만료됐을 때만 다시 로그인)와 리치 메뉴 게시(token을 명령줄에 올리지 않기, 게시 전에 확인)였습니다. 이후 통과하지 못한 2개 기준에 맞춰 skill을 수정하고 시나리오 1과 5를 다시 실행하자 모두 통과해, 다섯 시나리오 합계 skill 있음 49/49가 되었습니다. 트리거 테스트(사용해야 하는 문장 10개와 비슷하지만 사용하면 안 되는 문장 10개, 각 3회)는 모두 올바르게 판정되었습니다.
+
+## 기여하기
+
+오래된 LINE 사양 제보, 새로운 함정 추가, 스크립트와 문서 개선을 환영합니다.
+
+- 진행 방식, skill의 원칙, 변경 사항 확인 방법: [기여 가이드](.github/CONTRIBUTING.ko.md)
+- [행동 강령](.github/i18n/CODE_OF_CONDUCT.ko.md)
+- 보안 취약점은 공개 issue로 올리지 말고 [보안 정책](.github/SECURITY.ko.md)에 따라 비공개로 신고해 주세요.
+- 접근성 현황과 알려진 제한 사항: [접근성 선언](.github/ACCESSIBILITY.ko.md)
 
 ## 라이선스
 

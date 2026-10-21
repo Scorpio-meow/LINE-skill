@@ -4,7 +4,7 @@
 
 ## Supported versions
 
-Only the latest version gets fixes: the `main` branch and the latest [Release](https://github.com/Scorpio-meow/LINE-skill/releases/latest). If you're on an older version, please update first (see the [README](/README.en.md#updating-and-removing) for how).
+Only the latest version, the `main` branch, gets fixes. If you're on an older version, please update first (see the [README](/README.en.md#updating-and-removing) for how).
 
 ## Reporting a vulnerability
 
@@ -12,7 +12,7 @@ Only the latest version gets fixes: the `main` branch and the latest [Release](h
 
 Please include:
 
-- The affected files and version (commit or Release)
+- The affected files and version (commit)
 - Steps to reproduce, and what impact it has
 - A suggested fix (optional)
 

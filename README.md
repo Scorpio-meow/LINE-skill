@@ -121,7 +121,7 @@ Copy-Item -Recurse -Force LINE-skill\skills\line-dev "$TARGET\"
 ### Claude 應用程式（網頁版／桌面版）
 
 1. 開啟程式碼執行：Pro、Max 方案到 **Settings > Capabilities** 開啟「Code execution and file creation」；Team、Enterprise 方案由組織擁有者在組織設定裡開啟「Code execution and file creation」和「Skills」。
-2. 到 [Releases](https://github.com/Scorpio-meow/LINE-skill/releases/latest) 下載 `line-dev.zip`。要自己打包也可以，ZIP 最上層要是 `line-dev/` 資料夾；GitHub 的「Download ZIP」下載的是整個 repo（最上層是 `LINE-skill-main/`），不能直接上傳。
+2. 自己打包 `line-dev.zip`。ZIP 最上層要是 `line-dev/` 資料夾；GitHub 的「Download ZIP」下載的是整個 repo（最上層是 `LINE-skill-main/`），不能直接上傳，要先解壓縮或 clone repo，再只打包 `line-dev` 資料夾。
    - macOS／Linux：在 `LINE-skill/skills` 資料夾執行 `zip -r ../../line-dev.zip line-dev -x '*.DS_Store'`。
    - Windows：在檔案總管對 `skills\line-dev` 資料夾按右鍵 →「壓縮成 ZIP 檔案」（Windows 10 是「傳送到 → 壓縮的 (zipped) 資料夾」）。
 3. 到 **Customize > Skills**，按 **+** → **Create skill** → **Upload a skill**，上傳 ZIP。介面如果是 **Settings > Capabilities**，就在 Skills 區塊按 **Upload skill**。
@@ -201,6 +201,7 @@ skills/line-dev/
     ├── line_api.py               # Messaging API 操作 CLI（dry-run 優先）
     └── webhook_tools.py          # 簽章計算／驗證、模擬 LINE 打 webhook、一鍵 selftest
 evals/                            # 開發這個 skill 用的測試情境
+.github/                          # 社群文件（貢獻指南、行為準則、資安政策、無障礙聲明）與 issue／PR 範本
 ```
 
 ## 安全設計
@@ -219,6 +220,15 @@ evals/                            # 開發這個 skill 用的測試情境
 `evals/evals.json` 是開發這個 skill 用的 5 個測試情境：webhook 401 除錯、群組 bot 規格查詢、圖文選單上線、LIFF 身分驗證、群組 bot code review，共 49 條評分標準。`evals/files/richmenu/` 是故意埋了錯誤的圖文選單素材；`fake-env.txt` 是隨機產生的假 token，跑第 3 題時複製到工作資料夾並改名成 `.env`（題目說 token 在 `.env` 裡）。
 
 最近一次比較（Claude Opus 5.5，每個情境有／沒有 skill 各跑一次，盲評）：有 skill 通過 47/49、沒 skill 44/49；有 skill 平均快 16%。差距最大的是 LIFF（LIFF SDK 已棄用版本的資安提醒、只在 token 過期時重新登入）與圖文選單上線（token 不放上命令列、上線前先確認）。之後針對沒過的兩條修改 skill，重跑第 1、5 題都全過，五題合計有 skill 49/49。觸發測試（10 句該用、10 句相近但不該用，每句 3 次）全部判斷正確。
+
+## 參與貢獻
+
+歡迎回報過時的 LINE 規格、補充踩坑，或改善腳本與文件。
+
+- 流程、skill 的原則與怎麼檢查改動：[貢獻指南](.github/CONTRIBUTING.md)
+- [行為準則](.github/CODE_OF_CONDUCT.md)
+- 資安漏洞請照[資安政策](.github/SECURITY.md)私下回報，不要開公開 issue。
+- 無障礙狀況與已知限制：[無障礙聲明](.github/ACCESSIBILITY.md)
 
 ## 授權
 

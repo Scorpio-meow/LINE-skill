@@ -4,7 +4,7 @@
 
 ## 지원 버전
 
-최신 버전만 수정합니다: `main` 브랜치와 최신 [Release](https://github.com/Scorpio-meow/LINE-skill/releases/latest). 이전 버전을 쓰고 있다면 먼저 업데이트하세요(업데이트 방법은 [README](/README.ko.md#업데이트와-제거) 참고).
+최신 버전, 즉 `main` 브랜치만 수정합니다. 이전 버전을 쓰고 있다면 먼저 업데이트하세요(업데이트 방법은 [README](/README.ko.md#업데이트와-제거) 참고).
 
 ## 취약점 신고
 
@@ -12,7 +12,7 @@
 
 다음 내용을 포함해 주세요.
 
-- 영향을 받는 파일과 버전(commit 또는 Release)
+- 영향을 받는 파일과 버전(commit)
 - 재현 단계와 그로 인한 영향
 - 제안하는 수정 방법(선택)
 

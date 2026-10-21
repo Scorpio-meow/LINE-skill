@@ -4,7 +4,7 @@
 
 ## 支援的版本
 
-只修正最新版：`main` 分支與最新的 [Release](https://github.com/Scorpio-meow/LINE-skill/releases/latest)。用舊版的話請先更新（更新方式見 [README](/README.md#更新與移除)）。
+只修正最新版，也就是 `main` 分支。用舊版的話請先更新（更新方式見 [README](/README.md#更新與移除)）。
 
 ## 回報漏洞
 
@@ -12,7 +12,7 @@
 
 請附上：
 
-- 受影響的檔案與版本（commit 或 Release）
+- 受影響的檔案與版本（commit）
 - 重現步驟，以及會造成什麼影響
 - 建議的修法（可選）
 
