@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 使用問題與討論 / Questions and ideas
+    url: https://github.com/Scorpio-meow/LINE-skill/discussions
+    about: 安裝、使用上的問題或想法，請到 Discussions。/ Ask about installing or using the skill in Discussions.
+  - name: 回報資安漏洞 / Report a security vulnerability
+    url: https://github.com/Scorpio-meow/LINE-skill/security/advisories/new
+    about: 請私下回報，不要開公開 issue，詳見 SECURITY.md。/ Report privately, not in a public issue. See SECURITY.md.
+  - name: LINE 平台本身的漏洞 / Vulnerabilities in the LINE platform itself
+    url: https://bugbounty.linecorp.com/
+    about: LINE app、Messaging API、LIFF、LINE Login 的漏洞請向 LY Corporation 回報。/ Report these to LY Corporation.

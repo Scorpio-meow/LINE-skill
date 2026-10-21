@@ -1,0 +1,32 @@
+name: 無障礙問題 / Accessibility barrier
+description: 文件、腳本輸出或安裝流程讓你難以使用 / Docs, script output or installation steps are hard for you to use
+title: "[a11y] "
+labels: ["accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        謝謝你告訴我們！已知的限制列在 [ACCESSIBILITY.md](https://github.com/Scorpio-meow/LINE-skill/blob/main/.github/ACCESSIBILITY.md)。不方便公開的話，可以改寄 email（地址在 ACCESSIBILITY.md）。
+        Thanks for telling us! Known limitations are listed in ACCESSIBILITY.md. To report privately, email the address listed there.
+  - type: input
+    id: location
+    attributes:
+      label: 在哪裡遇到 / Where
+      placeholder: README.ja.md 的安裝表格、line_api.py quota 的輸出 ...
+    validations:
+      required: true
+  - type: input
+    id: assistive-tech
+    attributes:
+      label: 使用的輔助科技與環境 / Assistive technology and environment
+      placeholder: NVDA + Firefox、VoiceOver + Terminal、200% 放大、高對比 ...
+  - type: textarea
+    id: barrier
+    attributes:
+      label: 遇到什麼困難 / What was the barrier
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建議的改法 / Suggested improvement

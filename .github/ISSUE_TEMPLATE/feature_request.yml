@@ -1,0 +1,41 @@
+name: 新功能或新踩坑 / Feature request or new gotcha
+description: 建議新的腳本功能、支援新的 AI 工具，或分享 skill 還沒寫到的坑 / Suggest a script feature or tool support, or share a pitfall the skill doesn't cover
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 類型 / Kind
+      options:
+        - 新的踩坑條目 / New gotcha
+        - 腳本的新指令或選項 / New script command or option
+        - 支援新的 AI 工具或安裝方式 / New AI tool or install method
+        - 其他 / Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解決的問題 / Problem
+      description: 遇到什麼狀況、為什麼現在的 skill 不夠用 / What happened and why the skill falls short today
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建議做法 / Proposal
+  - type: textarea
+    id: gotcha
+    attributes:
+      label: 踩坑內容 / Gotcha details
+      description: 新踩坑才需要填，照 gotchas 的格式寫 / Only for a new gotcha, in the gotcha format
+      placeholder: |
+        症狀 / Symptom:
+        原因 / Cause:
+        解法 / Fix:
+        官方頁面 / Docs page: https://developers.line.biz/en/...
+  - type: input
+    id: source
+    attributes:
+      label: 官方出處 / Official source
+      placeholder: https://developers.line.biz/en/...

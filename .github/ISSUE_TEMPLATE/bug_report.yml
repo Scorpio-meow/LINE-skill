@@ -1,0 +1,79 @@
+name: Bug 回報 / Bug report
+description: 腳本出錯，或 AI 照著 skill 做卻做錯 / A script fails, or the AI does the wrong thing with the skill loaded
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        用 README 有的任何語言填寫都可以。/ Any README language is fine.
+        **貼上任何內容前，請先遮掉 token、secret、userId、groupId。/ Mask tokens, secrets, user IDs and group IDs before pasting anything.**
+        資安漏洞請不要在這裡回報，見 [SECURITY.md](https://github.com/Scorpio-meow/LINE-skill/blob/main/.github/SECURITY.md)。/ Report security vulnerabilities privately instead.
+  - type: dropdown
+    id: component
+    attributes:
+      label: 哪個部分 / Component
+      options:
+        - line_api.py
+        - line_docs.py
+        - webhook_tools.py
+        - SKILL.md（AI 的行為 / AI behaviour）
+        - references/（gotchas、doc-map）
+        - README／安裝 / README or installation
+        - 其他 / Other
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 發生了什麼 / What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期的結果 / What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟 / Steps to reproduce
+      description: 執行的指令，或給 AI 的提示 / The command you ran, or the prompt you gave the AI
+      placeholder: |
+        1. python3 skills/line-dev/scripts/line_api.py ...
+        2.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: 輸出或錯誤訊息 / Output or error message
+      render: shell
+  - type: input
+    id: ai-tool
+    attributes:
+      label: AI 工具與版本 / AI tool and version
+      placeholder: Claude Code 2.x, Codex CLI, Cursor ...
+  - type: dropdown
+    id: install
+    attributes:
+      label: 安裝方式 / How you installed the skill
+      options:
+        - bunx／npx skills
+        - gh skill
+        - 手動複製 / Manual copy
+        - Claude 應用程式上傳 ZIP / Claude app ZIP upload
+        - ChatGPT 上傳 ZIP / ChatGPT ZIP upload
+        - 其他 / Other
+  - type: input
+    id: environment
+    attributes:
+      label: 作業系統與 Python 版本 / OS and Python version
+      placeholder: Windows 11, Python 3.12
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: 確認 / Confirmation
+      options:
+        - label: 我貼上的內容沒有真的 token、secret、userId 或 groupId。/ What I pasted contains no real tokens, secrets, user IDs or group IDs.
+          required: true

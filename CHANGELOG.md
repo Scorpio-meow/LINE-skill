@@ -10,3 +10,4 @@
 - `line_docs.py`：即時查 LINE 官方文件（全文搜尋、API reference 段落、指南頁），結果附 developers.line.biz 網址，快取一天；連不到 `raw.githubusercontent.com` 時改用 `github.com` 的 git 鏡像，兩邊都失敗時改用過期的快取並標註。
 - `line_api.py`：Messaging API 操作 CLI。寫入指令沒有 `--yes` 只做 dry-run，送訊息自動帶 `X-Line-Retry-Key`，token 只送到 `api.line.me`、`api-data.line.me`。
 - `webhook_tools.py`：簽章計算與驗證、範例事件、模擬 LINE 打 webhook、一鍵 `selftest`。
+- 社群文件：貢獻指南、行為準則、資安政策、無障礙聲明（繁中、英、日、泰、印尼、韓文），以及 issue 與 PR 範本。

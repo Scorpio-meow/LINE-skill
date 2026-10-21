@@ -1,0 +1,41 @@
+name: LINE 規格過時或連結失效 / Outdated LINE info or broken link
+description: skill 講的數字、限制、行為和官方文件不符，或文件連結失效 / A number, limit or behaviour no longer matches the official docs, or a link is broken
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        LINE 的規格常變動，謝謝你幫忙查證！請附上官方出處（developers.line.biz、LINE 官方公告或 release notes）。
+        LINE changes often - thanks for checking! Please include an official source.
+  - type: input
+    id: location
+    attributes:
+      label: 在哪裡 / Where
+      description: 檔案與段落 / File and section
+      placeholder: references/gotchas/messaging.md 的「Invalid reply token」
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: 目前寫的內容 / What it says now
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正確的內容 / What is correct now
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 官方出處 / Official source
+      placeholder: https://developers.line.biz/en/...
+    validations:
+      required: true
+  - type: input
+    id: region
+    attributes:
+      label: 地區或方案 / Region or plan
+      description: 只在特定地區、方案或帳號類型適用時填寫（例如台灣的計價、認證帳號限定）/ Only if it applies to a specific region, plan or account type
