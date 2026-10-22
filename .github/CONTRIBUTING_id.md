@@ -1,8 +1,8 @@
 # Panduan kontribusi
 
-[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING.en.md) | [日本語](/.github/CONTRIBUTING.ja.md) | [ไทย](/.github/CONTRIBUTING.th.md) | **Bahasa Indonesia** | [한국어](/.github/CONTRIBUTING.ko.md)
+[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING_en.md) | [日本語](/.github/CONTRIBUTING_ja.md) | [ไทย](/.github/CONTRIBUTING_th.md) | **Bahasa Indonesia** | [한국어](/.github/CONTRIBUTING_ko.md)
 
-Terima kasih sudah mau membantu! Saat berpartisipasi dalam proyek ini, harap patuhi [Kode Etik](/.github/i18n/CODE_OF_CONDUCT.id.md).
+Terima kasih sudah mau membantu! Saat berpartisipasi dalam proyek ini, harap patuhi [Kode Etik](/.github/i18n/CODE_OF_CONDUCT_id.md).
 
 Anda boleh membuka issue atau PR dalam bahasa apa pun yang tersedia untuk README (繁體中文, English, 日本語, ไทย, Bahasa Indonesia, 한국어); balasan mungkin ditulis dalam bahasa Tionghoa Tradisional atau bahasa Inggris.
 
@@ -17,7 +17,7 @@ Anda boleh membuka issue atau PR dalam bahasa apa pun yang tersedia untuk README
 | Menemukan jebakan yang belum dibahas skill | Buka issue "Feature request or new gotcha" (permintaan fitur atau jebakan baru), atau langsung kirim PR untuk menambahkannya ke `references/gotchas/` |
 | Skrip error, atau AI sudah mengikuti skill tetapi tetap salah | Buka issue "Bug report" (laporan bug) |
 | Dokumentasi sulit dipahami, terjemahan keliru, masalah aksesibilitas | Buka issue yang sesuai, atau langsung kirim PR |
-| Celah keamanan | **Jangan buka issue**; laporkan secara privat sesuai [SECURITY.md](/.github/SECURITY.id.md) |
+| Celah keamanan | **Jangan buka issue**; laporkan secara privat sesuai [SECURITY.md](/.github/SECURITY_id.md) |
 
 Untuk perubahan yang lebih besar (perintah skrip baru, mengubah alur di `SKILL.md`, menambah file jebakan baru), buka issue untuk berdiskusi terlebih dahulu agar usaha Anda tidak sia-sia.
 
@@ -39,7 +39,7 @@ git clone https://github.com/Scorpio-meow/LINE-skill.git
 cd LINE-skill
 ```
 
-Agar alat AI langsung membaca versi yang sedang Anda ubah, buat tautan dari folder skill ini ke folder skill alat tersebut (hapus dulu `line-dev` yang sudah terpasang). Contoh di bawah untuk Claude Code; folder untuk alat lain ada di [README](/README.id.md#folder-skill-per-alat):
+Agar alat AI langsung membaca versi yang sedang Anda ubah, buat tautan dari folder skill ini ke folder skill alat tersebut (hapus dulu `line-dev` yang sudah terpasang). Contoh di bawah untuk Claude Code; folder untuk alat lain ada di [README](/README_id.md#folder-skill-per-alat):
 
 macOS/Linux:
 

@@ -1,6 +1,6 @@
 # LINE-skill
 
-**繁體中文** | [English](README.en.md) | [日本語](README.ja.md) | [ไทย](README.th.md) | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md)
+**繁體中文** | [English](README_en.md) | [日本語](README_ja.md) | [ไทย](README_th.md) | [Bahasa Indonesia](README_id.md) | [한국어](README_ko.md)
 
 給 AI 程式助理用的 Agent Skill：**`line-dev`**。讓 Claude、Codex、GitHub Copilot、Cursor、Gemini CLI 等工具在開發、除錯、操作 LINE 平台時更可靠——Messaging API webhook、reply／push 與訊息額度、Flex Message、圖文選單（Rich Menu）、群組機器人、LIFF、LINE Login。
 
@@ -201,7 +201,7 @@ skills/line-dev/
     ├── line_api.py               # Messaging API 操作 CLI（dry-run 優先）
     └── webhook_tools.py          # 簽章計算／驗證、模擬 LINE 打 webhook、一鍵 selftest
 evals/                            # 開發這個 skill 用的測試情境
-.github/                          # 社群文件（貢獻指南、行為準則、資安政策、無障礙聲明）與 issue／PR 範本
+.github/                          # 社群文件（貢獻指南、行為準則、安全政策、無障礙聲明）與 issue／PR 範本
 ```
 
 ## 安全設計
@@ -227,7 +227,7 @@ evals/                            # 開發這個 skill 用的測試情境
 
 - 流程、skill 的原則與怎麼檢查改動：[貢獻指南](.github/CONTRIBUTING.md)
 - [行為準則](.github/CODE_OF_CONDUCT.md)
-- 資安漏洞請照[資安政策](.github/SECURITY.md)私下回報，不要開公開 issue。
+- 資安漏洞請照[安全政策](.github/SECURITY.md)私下回報，不要開公開 issue。
 - 無障礙狀況與已知限制：[無障礙聲明](.github/ACCESSIBILITY.md)
 
 ## 授權

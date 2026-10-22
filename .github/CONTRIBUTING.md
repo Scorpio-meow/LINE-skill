@@ -1,6 +1,6 @@
 # 貢獻指南
 
-**繁體中文** | [English](/.github/CONTRIBUTING.en.md) | [日本語](/.github/CONTRIBUTING.ja.md) | [ไทย](/.github/CONTRIBUTING.th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING.id.md) | [한국어](/.github/CONTRIBUTING.ko.md)
+**繁體中文** | [English](/.github/CONTRIBUTING_en.md) | [日本語](/.github/CONTRIBUTING_ja.md) | [ไทย](/.github/CONTRIBUTING_th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING_id.md) | [한국어](/.github/CONTRIBUTING_ko.md)
 
 謝謝你願意幫忙！參與本專案請遵守[行為準則](/.github/CODE_OF_CONDUCT.md)。
 

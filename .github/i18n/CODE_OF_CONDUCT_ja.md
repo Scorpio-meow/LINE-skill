@@ -1,6 +1,6 @@
 # 行動規範
 
-[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT.en.md) | **日本語** | [ไทย](/.github/i18n/CODE_OF_CONDUCT.th.md) | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT.id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT.ko.md)
+[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT_en.md) | **日本語** | [ไทย](/.github/i18n/CODE_OF_CONDUCT_th.md) | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT_id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT_ko.md)
 
 このプロジェクトは [Contributor Covenant 3.0](https://www.contributor-covenant.org/ja/version/3/0/code_of_conduct/) を行動規範として採用しています。以下では、このプロジェクトでの適用範囲、特に大切にしていること、報告の方法と対応の方法を補足します。
 
@@ -21,7 +21,7 @@
 - **秘密にしたい場合、またはハラスメントに関わる場合**：[yao921024@gmail.com](mailto:yao921024@gmail.com) にメールしてください。メンテナーだけが読みます。発生日時と、関連するリンクやスクリーンショットを添えてください。
 - **公開してもよい場合**：関連する issue、PR、Discussion で @Scorpio-meow をメンションするか、issue を作成して説明してください。
 - **GitHub に対応を任せる場合**：報告対象がメンテナー本人のときや、第三者に対応してほしいときは、コメント右上の「⋯」メニューから **Report content** を選ぶか、相手のプロフィールページで **Block or Report** を選んでください。報告は GitHub Support に届きます。手順は [GitHub のドキュメント](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)を参照してください。
-- **セキュリティの脆弱性**：詳細は公開せず、[セキュリティポリシー](/.github/SECURITY.ja.md)に従って非公開で報告してください。
+- **セキュリティの脆弱性**：詳細は公開せず、[セキュリティポリシー](/.github/SECURITY_ja.md)に従って非公開で報告してください。
 
 ## 対応の方法
 

@@ -12,7 +12,7 @@ body:
     id: location
     attributes:
       label: 在哪裡遇到 / Where
-      placeholder: README.ja.md 的安裝表格、line_api.py quota 的輸出 ...
+      placeholder: README_ja.md 的安裝表格、line_api.py quota 的輸出 ...
     validations:
       required: true
   - type: input

@@ -1,6 +1,6 @@
 # Pernyataan aksesibilitas
 
-[繁體中文](/.github/ACCESSIBILITY.md) | [English](/.github/ACCESSIBILITY.en.md) | [日本語](/.github/ACCESSIBILITY.ja.md) | [ไทย](/.github/ACCESSIBILITY.th.md) | **Bahasa Indonesia** | [한국어](/.github/ACCESSIBILITY.ko.md)
+[繁體中文](/.github/ACCESSIBILITY.md) | [English](/.github/ACCESSIBILITY_en.md) | [日本語](/.github/ACCESSIBILITY_ja.md) | [ไทย](/.github/ACCESSIBILITY_th.md) | **Bahasa Indonesia** | [한국어](/.github/ACCESSIBILITY_ko.md)
 
 ## Komitmen kami
 

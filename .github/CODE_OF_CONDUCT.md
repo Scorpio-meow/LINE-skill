@@ -1,6 +1,6 @@
 # 行為準則
 
-**繁體中文** | [English](/.github/i18n/CODE_OF_CONDUCT.en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT.ja.md) | [ไทย](/.github/i18n/CODE_OF_CONDUCT.th.md) | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT.id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT.ko.md)
+**繁體中文** | [English](/.github/i18n/CODE_OF_CONDUCT_en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT_ja.md) | [ไทย](/.github/i18n/CODE_OF_CONDUCT_th.md) | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT_id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT_ko.md)
 
 本專案採用 [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) 作為行為準則。Contributor Covenant 3.0 目前沒有繁體中文版，以英文原文為準。下面補充本專案的適用範圍、特別在意的事、通報方式和處理方式。
 
@@ -21,7 +21,7 @@
 - **需要保密，或涉及騷擾**：寄信到 [yao921024@gmail.com](mailto:yao921024@gmail.com)，只有維護者會看到。請附上發生的時間、相關的連結或截圖。
 - **可以公開的情況**：在相關的 issue、PR 或 Discussion 標記 @Scorpio-meow，或開一則 issue 說明。
 - **交給 GitHub 處理**：被通報的是維護者本人，或你希望由第三方處理時，在留言右上角的「⋯」選單點選 **Report content**，或到對方的個人頁面點選 **Block or Report**，通報會送到 GitHub Support。詳細步驟見 [GitHub 文件](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)。
-- **資安漏洞**：不要公開細節，照[資安政策](/.github/SECURITY.md)私下回報。
+- **資安漏洞**：不要公開細節，照[安全政策](/.github/SECURITY.md)私下回報。
 
 ## 處理方式
 

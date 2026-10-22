@@ -1,8 +1,8 @@
 # 기여 가이드
 
-[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING.en.md) | [日本語](/.github/CONTRIBUTING.ja.md) | [ไทย](/.github/CONTRIBUTING.th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING.id.md) | **한국어**
+[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING_en.md) | [日本語](/.github/CONTRIBUTING_ja.md) | [ไทย](/.github/CONTRIBUTING_th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING_id.md) | **한국어**
 
-도와주셔서 감사합니다! 이 프로젝트에 참여할 때는 [행동 강령](/.github/i18n/CODE_OF_CONDUCT.ko.md)을 지켜 주세요.
+도와주셔서 감사합니다! 이 프로젝트에 참여할 때는 [행동 강령](/.github/i18n/CODE_OF_CONDUCT_ko.md)을 지켜 주세요.
 
 README가 제공되는 언어(繁體中文, English, 日本語, ไทย, Bahasa Indonesia, 한국어) 중 어느 것으로든 issue나 PR을 열어도 됩니다. 답변은 번체 중국어나 영어로 드릴 수 있습니다.
 
@@ -17,7 +17,7 @@ README가 제공되는 언어(繁體中文, English, 日本語, ไทย, Bahas
 | skill에 없는 함정을 겪음 | "Feature request or new gotcha"(새 기능 또는 새 함정) issue를 열거나, 바로 PR을 보내 `references/gotchas/`에 추가 |
 | 스크립트 오류, AI가 skill대로 했는데 잘못됨 | "Bug report"(버그 신고) issue 열기 |
 | 문서가 이해하기 어려움, 번역 오류, 접근성 문제 | 해당하는 issue를 열거나 바로 PR 보내기 |
-| 보안 취약점 | **issue를 열지 마세요**. [SECURITY.md](/.github/SECURITY.ko.md)에 따라 비공개로 신고 |
+| 보안 취약점 | **issue를 열지 마세요**. [SECURITY.md](/.github/SECURITY_ko.md)에 따라 비공개로 신고 |
 
 큰 변경(새 스크립트 명령, `SKILL.md`의 흐름 조정, 새 함정 파일 추가)은 헛수고가 되지 않도록 먼저 issue를 열어 논의해 주세요.
 
@@ -39,7 +39,7 @@ git clone https://github.com/Scorpio-meow/LINE-skill.git
 cd LINE-skill
 ```
 
-수정 중인 버전을 AI 도구가 바로 읽게 하려면 skill 폴더를 도구의 skill 폴더에 링크하세요(이미 설치된 `line-dev`는 먼저 제거). 아래는 Claude Code 예시이며, 다른 도구의 폴더는 [README](/README.ko.md#도구별-skill-폴더)를 참고하세요.
+수정 중인 버전을 AI 도구가 바로 읽게 하려면 skill 폴더를 도구의 skill 폴더에 링크하세요(이미 설치된 `line-dev`는 먼저 제거). 아래는 Claude Code 예시이며, 다른 도구의 폴더는 [README](/README_ko.md#도구별-skill-폴더)를 참고하세요.
 
 macOS/Linux:
 

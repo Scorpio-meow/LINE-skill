@@ -1,6 +1,6 @@
 # LINE-skill
 
-[繁體中文](README.md) | [English](README.en.md) | [日本語](README.ja.md) | [ไทย](README.th.md) | [Bahasa Indonesia](README.id.md) | **한국어**
+[繁體中文](README.md) | [English](README_en.md) | [日本語](README_ja.md) | [ไทย](README_th.md) | [Bahasa Indonesia](README_id.md) | **한국어**
 
 AI 코딩 어시스턴트용 Agent Skill: **`line-dev`**. Claude, Codex, GitHub Copilot, Cursor, Gemini CLI 같은 도구가 LINE 플랫폼을 개발·디버깅·운영할 때 더 정확하게 동작하도록 돕습니다. Messaging API 웹훅, reply/push 메시지와 메시지 할당량, Flex Message, 리치 메뉴, 그룹 채팅 봇, LIFF, LINE Login을 다룹니다.
 
@@ -225,10 +225,10 @@ evals/                            # 이 skill 개발에 쓴 테스트 시나리�
 
 오래된 LINE 사양 제보, 새로운 함정 추가, 스크립트와 문서 개선을 환영합니다.
 
-- 진행 방식, skill의 원칙, 변경 사항 확인 방법: [기여 가이드](.github/CONTRIBUTING.ko.md)
-- [행동 강령](.github/i18n/CODE_OF_CONDUCT.ko.md)
-- 보안 취약점은 공개 issue로 올리지 말고 [보안 정책](.github/SECURITY.ko.md)에 따라 비공개로 신고해 주세요.
-- 접근성 현황과 알려진 제한 사항: [접근성 선언](.github/ACCESSIBILITY.ko.md)
+- 진행 방식, skill의 원칙, 변경 사항 확인 방법: [기여 가이드](.github/CONTRIBUTING_ko.md)
+- [행동 강령](.github/i18n/CODE_OF_CONDUCT_ko.md)
+- 보안 취약점은 공개 issue로 올리지 말고 [보안 정책](.github/SECURITY_ko.md)에 따라 비공개로 신고해 주세요.
+- 접근성 현황과 알려진 제한 사항: [접근성 선언](.github/ACCESSIBILITY_ko.md)
 
 ## 라이선스
 

@@ -1,6 +1,6 @@
 # Accessibility Statement
 
-[繁體中文](/.github/ACCESSIBILITY.md) | **English** | [日本語](/.github/ACCESSIBILITY.ja.md) | [ไทย](/.github/ACCESSIBILITY.th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY.id.md) | [한국어](/.github/ACCESSIBILITY.ko.md)
+[繁體中文](/.github/ACCESSIBILITY.md) | **English** | [日本語](/.github/ACCESSIBILITY_ja.md) | [ไทย](/.github/ACCESSIBILITY_th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY_id.md) | [한국어](/.github/ACCESSIBILITY_ko.md)
 
 ## Our commitment
 

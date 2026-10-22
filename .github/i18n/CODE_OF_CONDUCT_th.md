@@ -1,6 +1,6 @@
 # จรรยาบรรณ
 
-[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT.en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT.ja.md) | **ไทย** | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT.id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT.ko.md)
+[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT_en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT_ja.md) | **ไทย** | [Bahasa Indonesia](/.github/i18n/CODE_OF_CONDUCT_id.md) | [한국어](/.github/i18n/CODE_OF_CONDUCT_ko.md)
 
 โปรเจกต์นี้ใช้ [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) เป็นจรรยาบรรณ ขณะนี้ Contributor Covenant 3.0 ยังไม่มีฉบับภาษาไทย จึงยึดต้นฉบับภาษาอังกฤษเป็นหลัก ส่วนด้านล่างเป็นข้อกำหนดเพิ่มเติมของโปรเจกต์นี้ ได้แก่ ขอบเขต สิ่งที่ให้ความสำคัญเป็นพิเศษ วิธีแจ้งปัญหา และวิธีดำเนินการ
 
@@ -21,7 +21,7 @@ issue, pull request, Discussions, ความคิดเห็นใน commit
 - **ต้องการเก็บเป็นความลับ หรือเกี่ยวกับการคุกคาม**: ส่งอีเมลไปที่ [yao921024@gmail.com](mailto:yao921024@gmail.com) ซึ่งมีเพียงผู้ดูแลที่เห็น โปรดแนบเวลาที่เกิดเหตุ ลิงก์ที่เกี่ยวข้อง หรือภาพหน้าจอ
 - **กรณีที่เปิดเผยได้**: แท็ก @Scorpio-meow ใน issue, PR หรือ Discussion ที่เกี่ยวข้อง หรือเปิด issue เพื่ออธิบาย
 - **ให้ GitHub ดำเนินการ**: หากผู้ถูกแจ้งคือผู้ดูแลเอง หรือต้องการให้บุคคลที่สามดำเนินการ ให้เลือก **Report content** จากเมนู "⋯" มุมขวาบนของความคิดเห็น หรือเลือก **Block or Report** ในหน้าโปรไฟล์ของอีกฝ่าย รายงานจะส่งไปยัง GitHub Support ดูขั้นตอนได้ใน[เอกสารของ GitHub](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
-- **ช่องโหว่ด้านความปลอดภัย**: อย่าเปิดเผยรายละเอียดต่อสาธารณะ ให้แจ้งแบบส่วนตัวตาม[นโยบายความปลอดภัย](/.github/SECURITY.th.md)
+- **ช่องโหว่ด้านความปลอดภัย**: อย่าเปิดเผยรายละเอียดต่อสาธารณะ ให้แจ้งแบบส่วนตัวตาม[นโยบายความปลอดภัย](/.github/SECURITY_th.md)
 
 ## วิธีดำเนินการ
 

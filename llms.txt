@@ -27,7 +27,7 @@ Key concepts:
 
 ## Usage
 
-- [README](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.en.md): Installation with `bunx skills`, each tool's own installer or by hand for Claude Code, the Claude apps, ChatGPT, OpenAI Codex, GitHub Copilot, Cursor, Gemini CLI, Google Antigravity, Devin Desktop, OpenCode, Cline, Kiro, JetBrains Junie and Roo Code, plus updating and removing, and script examples
+- [README](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README_en.md): Installation with `bunx skills`, each tool's own installer or by hand for Claude Code, the Claude apps, ChatGPT, OpenAI Codex, GitHub Copilot, Cursor, Gemini CLI, Google Antigravity, Devin Desktop, OpenCode, Cline, Kiro, JetBrains Junie and Roo Code, plus updating and removing, and script examples
 
 ## Evaluation
 
@@ -35,12 +35,12 @@ Key concepts:
 
 ## Optional
 
-- [Contributing guide](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/CONTRIBUTING.en.md): The skill's principles, how to check changes and how to keep the six language versions in sync
-- [Security policy](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/SECURITY.en.md): What counts as a vulnerability and how to report it privately
+- [Contributing guide](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/CONTRIBUTING_en.md): The skill's principles, how to check changes and how to keep the six language versions in sync
+- [Security policy](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/.github/SECURITY_en.md): What counts as a vulnerability and how to report it privately
 - [Changelog](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/CHANGELOG.md): Change history (Traditional Chinese)
 - [README in Traditional Chinese](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.md)
-- [README in Japanese](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.ja.md)
-- [README in Thai](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.th.md)
-- [README in Indonesian](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.id.md)
-- [README in Korean](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README.ko.md)
+- [README in Japanese](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README_ja.md)
+- [README in Thai](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README_th.md)
+- [README in Indonesian](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README_id.md)
+- [README in Korean](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/README_ko.md)
 - [License](https://raw.githubusercontent.com/Scorpio-meow/LINE-skill/main/LICENSE): MIT

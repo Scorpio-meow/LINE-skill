@@ -1,8 +1,8 @@
 # Contributing Guide
 
-[繁體中文](/.github/CONTRIBUTING.md) | **English** | [日本語](/.github/CONTRIBUTING.ja.md) | [ไทย](/.github/CONTRIBUTING.th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING.id.md) | [한국어](/.github/CONTRIBUTING.ko.md)
+[繁體中文](/.github/CONTRIBUTING.md) | **English** | [日本語](/.github/CONTRIBUTING_ja.md) | [ไทย](/.github/CONTRIBUTING_th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING_id.md) | [한국어](/.github/CONTRIBUTING_ko.md)
 
-Thanks for wanting to help! Please follow the [Code of Conduct](/.github/i18n/CODE_OF_CONDUCT.en.md) when taking part in this project.
+Thanks for wanting to help! Please follow the [Code of Conduct](/.github/i18n/CODE_OF_CONDUCT_en.md) when taking part in this project.
 
 You can open issues and PRs in any language the README comes in (繁體中文, English, 日本語, ไทย, Bahasa Indonesia, 한국어); replies may be in Traditional Chinese or English.
 
@@ -17,7 +17,7 @@ You can open issues and PRs in any language the README comes in (繁體中文, E
 | You hit a gotcha the skill doesn't cover | Open a "Feature request or new gotcha" issue, or send a PR that adds it to `references/gotchas/` |
 | A script errors, or the AI follows the skill and still gets it wrong | Open a "Bug report" issue |
 | Unclear docs, translation mistakes, accessibility problems | Open the matching issue, or send a PR directly |
-| Security vulnerabilities | **Don't open an issue**; report it privately as described in [SECURITY.md](/.github/SECURITY.en.md) |
+| Security vulnerabilities | **Don't open an issue**; report it privately as described in [SECURITY.md](/.github/SECURITY_en.md) |
 
 For larger changes (new script commands, changes to the flow in `SKILL.md`, new gotcha files), please open an issue to discuss first so no work goes to waste.
 
@@ -39,7 +39,7 @@ git clone https://github.com/Scorpio-meow/LINE-skill.git
 cd LINE-skill
 ```
 
-To have your AI tool read the version you're editing directly, link the skill folder into the tool's skill folder (remove any installed `line-dev` first). Claude Code is shown here; for other tools' folders, see the [README](/README.en.md#skill-folders-by-tool):
+To have your AI tool read the version you're editing directly, link the skill folder into the tool's skill folder (remove any installed `line-dev` first). Claude Code is shown here; for other tools' folders, see the [README](/README_en.md#skill-folders-by-tool):
 
 macOS/Linux:
 

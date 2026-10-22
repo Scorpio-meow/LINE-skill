@@ -1,6 +1,6 @@
 # Kode Etik
 
-[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT.en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT.ja.md) | [ไทย](/.github/i18n/CODE_OF_CONDUCT.th.md) | **Bahasa Indonesia** | [한국어](/.github/i18n/CODE_OF_CONDUCT.ko.md)
+[繁體中文](/.github/CODE_OF_CONDUCT.md) | [English](/.github/i18n/CODE_OF_CONDUCT_en.md) | [日本語](/.github/i18n/CODE_OF_CONDUCT_ja.md) | [ไทย](/.github/i18n/CODE_OF_CONDUCT_th.md) | **Bahasa Indonesia** | [한국어](/.github/i18n/CODE_OF_CONDUCT_ko.md)
 
 Proyek ini menggunakan [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) sebagai kode etiknya. Saat ini Contributor Covenant 3.0 belum tersedia dalam Bahasa Indonesia, jadi teks asli berbahasa Inggris yang berlaku. Bagian di bawah ini menambahkan ruang lingkup proyek ini, hal yang paling diperhatikan, cara melapor, dan cara laporan ditangani.
 
@@ -21,7 +21,7 @@ Issue, pull request, Discussions, komentar commit dan tinjauan kode di repo ini,
 - **Jika perlu dirahasiakan, atau menyangkut pelecehan**: kirim email ke [yao921024@gmail.com](mailto:yao921024@gmail.com); hanya pengelola yang membacanya. Sertakan waktu kejadian serta tautan atau tangkapan layar yang terkait.
 - **Jika boleh terbuka**: sebut @Scorpio-meow di issue, PR, atau Discussion yang terkait, atau buka issue untuk menjelaskannya.
 - **Jika ingin ditangani GitHub**: jika yang dilaporkan adalah pengelola sendiri, atau Anda ingin pihak ketiga yang menanganinya, pilih **Report content** dari menu "⋯" di kanan atas komentar, atau **Block or Report** di halaman profil orang tersebut; laporan akan dikirim ke GitHub Support. Langkah-langkahnya ada di [dokumentasi GitHub](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).
-- **Celah keamanan**: jangan ungkapkan detailnya secara publik; laporkan secara privat sesuai [kebijakan keamanan](/.github/SECURITY.id.md).
+- **Celah keamanan**: jangan ungkapkan detailnya secara publik; laporkan secara privat sesuai [kebijakan keamanan](/.github/SECURITY_id.md).
 
 ## Cara laporan ditangani
 

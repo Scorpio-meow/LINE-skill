@@ -1,6 +1,6 @@
 # LINE-skill
 
-[繁體中文](README.md) | [English](README.en.md) | **日本語** | [ไทย](README.th.md) | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md)
+[繁體中文](README.md) | [English](README_en.md) | **日本語** | [ไทย](README_th.md) | [Bahasa Indonesia](README_id.md) | [한국어](README_ko.md)
 
 AI コーディングアシスタント向けの Agent Skill **`line-dev`** です。Claude、Codex、GitHub Copilot、Cursor、Gemini CLI などのツールが、LINE プラットフォームの開発・デバッグ・運用をより確実に行えるようにします。対象は Messaging API の Webhook、応答／プッシュメッセージとメッセージ通数、Flex Message、リッチメニュー、グループ向けボット、LIFF、LINE ログインです。
 
@@ -225,10 +225,10 @@ evals/                            # この skill の開発に使ったテスト�
 
 古くなった LINE の仕様の報告、落とし穴の追加、スクリプトやドキュメントの改善を歓迎します。
 
-- 流れ、skill の方針、変更の確認方法：[コントリビューションガイド](.github/CONTRIBUTING.ja.md)
-- [行動規範](.github/i18n/CODE_OF_CONDUCT.ja.md)
-- セキュリティの脆弱性は公開の issue にせず、[セキュリティポリシー](.github/SECURITY.ja.md)に従って非公開で報告してください。
-- アクセシビリティの状況と既知の制限：[アクセシビリティ方針](.github/ACCESSIBILITY.ja.md)
+- 流れ、skill の方針、変更の確認方法：[コントリビューションガイド](.github/CONTRIBUTING_ja.md)
+- [行動規範](.github/i18n/CODE_OF_CONDUCT_ja.md)
+- セキュリティの脆弱性は公開の issue にせず、[セキュリティポリシー](.github/SECURITY_ja.md)に従って非公開で報告してください。
+- アクセシビリティの状況と既知の制限：[アクセシビリティ方針](.github/ACCESSIBILITY_ja.md)
 
 ## ライセンス
 

@@ -1,8 +1,8 @@
 # แนวทางการมีส่วนร่วม
 
-[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING.en.md) | [日本語](/.github/CONTRIBUTING.ja.md) | **ไทย** | [Bahasa Indonesia](/.github/CONTRIBUTING.id.md) | [한국어](/.github/CONTRIBUTING.ko.md)
+[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING_en.md) | [日本語](/.github/CONTRIBUTING_ja.md) | **ไทย** | [Bahasa Indonesia](/.github/CONTRIBUTING_id.md) | [한국어](/.github/CONTRIBUTING_ko.md)
 
-ขอบคุณที่อยากช่วย! การมีส่วนร่วมในโปรเจกต์นี้ต้องปฏิบัติตาม[จรรยาบรรณ](/.github/i18n/CODE_OF_CONDUCT.th.md)
+ขอบคุณที่อยากช่วย! การมีส่วนร่วมในโปรเจกต์นี้ต้องปฏิบัติตาม[จรรยาบรรณ](/.github/i18n/CODE_OF_CONDUCT_th.md)
 
 เปิด issue หรือ PR ด้วยภาษาใดก็ได้ที่ README มี (繁體中文, English, 日本語, ไทย, Bahasa Indonesia, 한국어) แต่คำตอบอาจเป็นภาษาจีนตัวเต็มหรือภาษาอังกฤษ
 
@@ -17,7 +17,7 @@
 | เจอกับดักที่ skill ยังไม่ได้เขียนไว้ | เปิด issue แบบ "Feature request or new gotcha" (ขอฟีเจอร์หรือแจ้งกับดักใหม่) หรือส่ง PR เพิ่มลงใน `references/gotchas/` ได้เลย |
 | สคริปต์ error หรือ AI ทำตาม skill แล้วยังทำผิด | เปิด issue แบบ "Bug report" (รายงานบั๊ก) |
 | เอกสารอ่านไม่เข้าใจ คำแปลผิด ปัญหาด้านการเข้าถึง | เปิด issue แบบที่ตรงกัน หรือส่ง PR ได้เลย |
-| ช่องโหว่ด้านความปลอดภัย | **อย่าเปิด issue** ให้แจ้งแบบส่วนตัวตาม [SECURITY.md](/.github/SECURITY.th.md) |
+| ช่องโหว่ด้านความปลอดภัย | **อย่าเปิด issue** ให้แจ้งแบบส่วนตัวตาม [SECURITY.md](/.github/SECURITY_th.md) |
 
 การเปลี่ยนแปลงที่ใหญ่ขึ้น (คำสั่งใหม่ของสคริปต์, ปรับขั้นตอนใน `SKILL.md`, เพิ่มไฟล์ gotcha) โปรดเปิด issue พูดคุยกันก่อน จะได้ไม่เสียแรงเปล่า
 
@@ -39,7 +39,7 @@ git clone https://github.com/Scorpio-meow/LINE-skill.git
 cd LINE-skill
 ```
 
-ถ้าต้องการให้เครื่องมือ AI อ่านเวอร์ชันที่คุณกำลังแก้อยู่โดยตรง ให้ลิงก์โฟลเดอร์ skill ไปยังโฟลเดอร์ skill ของเครื่องมือ (ลบ `line-dev` ที่ติดตั้งไว้ออกก่อน) ตัวอย่างด้านล่างใช้ Claude Code ส่วนโฟลเดอร์ของเครื่องมืออื่นดูได้ที่ [README](/README.th.md#โฟลเดอร์-skill-ของแต่ละเครื่องมือ):
+ถ้าต้องการให้เครื่องมือ AI อ่านเวอร์ชันที่คุณกำลังแก้อยู่โดยตรง ให้ลิงก์โฟลเดอร์ skill ไปยังโฟลเดอร์ skill ของเครื่องมือ (ลบ `line-dev` ที่ติดตั้งไว้ออกก่อน) ตัวอย่างด้านล่างใช้ Claude Code ส่วนโฟลเดอร์ของเครื่องมืออื่นดูได้ที่ [README](/README_th.md#โฟลเดอร์-skill-ของแต่ละเครื่องมือ):
 
 macOS/Linux:
 

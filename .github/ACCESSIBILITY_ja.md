@@ -1,6 +1,6 @@
 # アクセシビリティ方針
 
-[繁體中文](/.github/ACCESSIBILITY.md) | [English](/.github/ACCESSIBILITY.en.md) | **日本語** | [ไทย](/.github/ACCESSIBILITY.th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY.id.md) | [한국어](/.github/ACCESSIBILITY.ko.md)
+[繁體中文](/.github/ACCESSIBILITY.md) | [English](/.github/ACCESSIBILITY_en.md) | **日本語** | [ไทย](/.github/ACCESSIBILITY_th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY_id.md) | [한국어](/.github/ACCESSIBILITY_ko.md)
 
 ## 私たちの約束
 

@@ -1,6 +1,6 @@
 # 無障礙聲明
 
-**繁體中文** | [English](/.github/ACCESSIBILITY.en.md) | [日本語](/.github/ACCESSIBILITY.ja.md) | [ไทย](/.github/ACCESSIBILITY.th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY.id.md) | [한국어](/.github/ACCESSIBILITY.ko.md)
+**繁體中文** | [English](/.github/ACCESSIBILITY_en.md) | [日本語](/.github/ACCESSIBILITY_ja.md) | [ไทย](/.github/ACCESSIBILITY_th.md) | [Bahasa Indonesia](/.github/ACCESSIBILITY_id.md) | [한국어](/.github/ACCESSIBILITY_ko.md)
 
 ## 我們的承諾
 

@@ -1,6 +1,6 @@
 # LINE-skill
 
-[繁體中文](README.md) | [English](README.en.md) | [日本語](README.ja.md) | **ไทย** | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md)
+[繁體中文](README.md) | [English](README_en.md) | [日本語](README_ja.md) | **ไทย** | [Bahasa Indonesia](README_id.md) | [한국어](README_ko.md)
 
 Agent Skill สำหรับผู้ช่วยเขียนโค้ด AI: **`line-dev`** ช่วยให้ Claude, Codex, GitHub Copilot, Cursor, Gemini CLI และเครื่องมืออื่น ๆ ทำงานกับแพลตฟอร์ม LINE ได้แม่นยำขึ้น ทั้งการพัฒนา การดีบัก และการใช้งานจริง ครอบคลุม webhook ของ Messaging API, ข้อความ reply/push และโควตาข้อความ, Flex Message, ริชเมนู (Rich Menu), บอทในแชทกลุ่ม, LIFF และ LINE Login
 
@@ -225,10 +225,10 @@ evals/                            # สถานการณ์ทดสอบ�
 
 ยินดีรับการแจ้งสเปก LINE ที่ล้าสมัย การเพิ่มกับดัก และการปรับปรุงสคริปต์หรือเอกสาร
 
-- ขั้นตอน หลักการของ skill และวิธีตรวจการเปลี่ยนแปลง: [แนวทางการมีส่วนร่วม](.github/CONTRIBUTING.th.md)
-- [จรรยาบรรณ](.github/i18n/CODE_OF_CONDUCT.th.md)
-- ช่องโหว่ด้านความปลอดภัยให้แจ้งแบบส่วนตัวตาม[นโยบายความปลอดภัย](.github/SECURITY.th.md) อย่าเปิด issue สาธารณะ
-- สถานะด้านการเข้าถึงและข้อจำกัดที่ทราบ: [คำแถลงด้านการเข้าถึง](.github/ACCESSIBILITY.th.md)
+- ขั้นตอน หลักการของ skill และวิธีตรวจการเปลี่ยนแปลง: [แนวทางการมีส่วนร่วม](.github/CONTRIBUTING_th.md)
+- [จรรยาบรรณ](.github/i18n/CODE_OF_CONDUCT_th.md)
+- ช่องโหว่ด้านความปลอดภัยให้แจ้งแบบส่วนตัวตาม[นโยบายความปลอดภัย](.github/SECURITY_th.md) อย่าเปิด issue สาธารณะ
+- สถานะด้านการเข้าถึงและข้อจำกัดที่ทราบ: [คำแถลงด้านการเข้าถึง](.github/ACCESSIBILITY_th.md)
 
 ## สัญญาอนุญาต
 

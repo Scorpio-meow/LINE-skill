@@ -1,8 +1,8 @@
 # コントリビューションガイド
 
-[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING.en.md) | **日本語** | [ไทย](/.github/CONTRIBUTING.th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING.id.md) | [한국어](/.github/CONTRIBUTING.ko.md)
+[繁體中文](/.github/CONTRIBUTING.md) | [English](/.github/CONTRIBUTING_en.md) | **日本語** | [ไทย](/.github/CONTRIBUTING_th.md) | [Bahasa Indonesia](/.github/CONTRIBUTING_id.md) | [한국어](/.github/CONTRIBUTING_ko.md)
 
-協力していただきありがとうございます！本プロジェクトに参加する際は[行動規範](/.github/i18n/CODE_OF_CONDUCT.ja.md)を守ってください。
+協力していただきありがとうございます！本プロジェクトに参加する際は[行動規範](/.github/i18n/CODE_OF_CONDUCT_ja.md)を守ってください。
 
 issue や PR は、README にあるどの言語（繁體中文、English、日本語、ไทย、Bahasa Indonesia、한국어）で書いても構いません。返信は繁体字中国語か英語になることがあります。
 
@@ -17,7 +17,7 @@ issue や PR は、README にあるどの言語（繁體中文、English、日�
 | skill に書かれていない落とし穴にはまった | 「Feature request or new gotcha」（新機能・新しい落とし穴）の issue を作成するか、`references/gotchas/` に追加する PR を直接送る |
 | スクリプトがエラーになる、skill どおりに動いた AI が間違える | 「Bug report」（バグ報告）の issue を作成する |
 | ドキュメントが分かりにくい、翻訳の誤り、アクセシビリティの問題 | 該当する issue を作成するか、PR を直接送る |
-| セキュリティの脆弱性 | **issue は作成せず**、[SECURITY.md](/.github/SECURITY.ja.md) に従って非公開で報告する |
+| セキュリティの脆弱性 | **issue は作成せず**、[SECURITY.md](/.github/SECURITY_ja.md) に従って非公開で報告する |
 
 大きめの変更（スクリプトの新しいコマンド、`SKILL.md` の手順の変更、gotcha ファイルの追加）は、作業が無駄にならないよう、先に issue で相談してください。
 
@@ -39,7 +39,7 @@ git clone https://github.com/Scorpio-meow/LINE-skill.git
 cd LINE-skill
 ```
 
-編集中のバージョンを AI ツールに直接読み込ませるには、skill フォルダーをツールの skill フォルダーにリンクします（インストール済みの `line-dev` は先に削除してください）。以下は Claude Code の例です。ほかのツールのフォルダーは [README](/README.ja.md#ツール別の-skill-フォルダー) を参照してください。
+編集中のバージョンを AI ツールに直接読み込ませるには、skill フォルダーをツールの skill フォルダーにリンクします（インストール済みの `line-dev` は先に削除してください）。以下は Claude Code の例です。ほかのツールのフォルダーは [README](/README_ja.md#ツール別の-skill-フォルダー) を参照してください。
 
 macOS／Linux：
 

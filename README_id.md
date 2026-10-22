@@ -1,6 +1,6 @@
 # LINE-skill
 
-[繁體中文](README.md) | [English](README.en.md) | [日本語](README.ja.md) | [ไทย](README.th.md) | **Bahasa Indonesia** | [한국어](README.ko.md)
+[繁體中文](README.md) | [English](README_en.md) | [日本語](README_ja.md) | [ไทย](README_th.md) | **Bahasa Indonesia** | [한국어](README_ko.md)
 
 Agent Skill untuk asisten coding AI: **`line-dev`**. Skill ini membuat Claude, Codex, GitHub Copilot, Cursor, Gemini CLI, dan alat sejenis lebih andal saat membangun, men-debug, dan mengoperasikan platform LINE — webhook Messaging API, pesan reply/push dan kuota pesan, Flex Message, rich menu, bot obrolan grup, LIFF, dan LINE Login.
 
@@ -225,10 +225,10 @@ Perbandingan terbaru (Claude Opus 5.5, setiap skenario dijalankan sekali dengan 
 
 Laporan spesifikasi LINE yang sudah usang, jebakan baru, dan perbaikan skrip maupun dokumentasi sangat diterima.
 
-- Alur kerja, prinsip skill, dan cara memeriksa perubahan: [Panduan kontribusi](.github/CONTRIBUTING.id.md)
-- [Kode Etik](.github/i18n/CODE_OF_CONDUCT.id.md)
-- Laporkan celah keamanan secara privat sesuai [kebijakan keamanan](.github/SECURITY.id.md); jangan membuka issue publik.
-- Status aksesibilitas dan keterbatasan yang diketahui: [Pernyataan aksesibilitas](.github/ACCESSIBILITY.id.md)
+- Alur kerja, prinsip skill, dan cara memeriksa perubahan: [Panduan kontribusi](.github/CONTRIBUTING_id.md)
+- [Kode Etik](.github/i18n/CODE_OF_CONDUCT_id.md)
+- Laporkan celah keamanan secara privat sesuai [kebijakan keamanan](.github/SECURITY_id.md); jangan membuka issue publik.
+- Status aksesibilitas dan keterbatasan yang diketahui: [Pernyataan aksesibilitas](.github/ACCESSIBILITY_id.md)
 
 ## Lisensi
 

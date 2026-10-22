@@ -1,6 +1,6 @@
 # LINE-skill
 
-[繁體中文](README.md) | **English** | [日本語](README.ja.md) | [ไทย](README.th.md) | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md)
+[繁體中文](README.md) | **English** | [日本語](README_ja.md) | [ไทย](README_th.md) | [Bahasa Indonesia](README_id.md) | [한국어](README_ko.md)
 
 An Agent Skill for AI coding assistants: **`line-dev`**. It makes Claude, Codex, GitHub Copilot, Cursor, Gemini CLI and similar tools more reliable when building, debugging and operating on the LINE platform — Messaging API webhooks, reply/push messages and message quota, Flex Messages, rich menus, group-chat bots, LIFF and LINE Login.
 
@@ -225,10 +225,10 @@ Most recent comparison (Claude Opus 5.5, one run per scenario with and without t
 
 Reports of outdated LINE specs, new gotchas, and improvements to the scripts and docs are welcome.
 
-- Workflow, the skill's principles and how to check your changes: [Contributing guide](.github/CONTRIBUTING.en.md)
-- [Code of Conduct](.github/i18n/CODE_OF_CONDUCT.en.md)
-- Report security vulnerabilities privately as described in the [security policy](.github/SECURITY.en.md); don't open a public issue.
-- Accessibility status and known limitations: [Accessibility statement](.github/ACCESSIBILITY.en.md)
+- Workflow, the skill's principles and how to check your changes: [Contributing guide](.github/CONTRIBUTING_en.md)
+- [Code of Conduct](.github/i18n/CODE_OF_CONDUCT_en.md)
+- Report security vulnerabilities privately as described in the [security policy](.github/SECURITY_en.md); don't open a public issue.
+- Accessibility status and known limitations: [Accessibility statement](.github/ACCESSIBILITY_en.md)
 
 ## License
 

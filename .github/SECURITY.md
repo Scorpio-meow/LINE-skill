@@ -1,24 +1,48 @@
-# 資安政策
+# 安全政策
 
-**繁體中文** | [English](/.github/SECURITY.en.md) | [日本語](/.github/SECURITY.ja.md) | [ไทย](/.github/SECURITY.th.md) | [Bahasa Indonesia](/.github/SECURITY.id.md) | [한국어](/.github/SECURITY.ko.md)
+**繁體中文** | [English](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/.github/SECURITY_en.md) | [日本語](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/.github/SECURITY_ja.md) | [ไทย](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/.github/SECURITY_th.md) | [Bahasa Indonesia](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/.github/SECURITY_id.md) | [한국어](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/.github/SECURITY_ko.md)
 
 ## 支援的版本
 
-只修正最新版，也就是 `main` 分支。用舊版的話請先更新（更新方式見 [README](/README.md#更新與移除)）。
+只修正最新版，也就是 `main` 分支。用舊版的話請先更新（更新方式見 [README](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/README.md#更新與移除)）。
 
 ## 回報漏洞
 
-**請不要開公開的 issue。** 請用 GitHub 的私下回報：到 repo 的 **Security** 分頁按 **Report a vulnerability**，或直接開啟[這個連結](https://github.com/Scorpio-meow/LINE-skill/security/advisories/new)。無法使用時，寄信到 yao921024@gmail.com，主旨加上 `[LINE-skill security]`。
+**請不要在公開的 Issue、Pull Request 或討論區揭露漏洞細節。**
 
-請附上：
+請擇一管道私下回報：
+
+1. **GitHub 私下回報（建議）**：到本專案的 **Security** 分頁按 **Report a vulnerability**，或直接開啟[私下回報表單](https://github.com/Scorpio-meow/LINE-skill/security/advisories/new)。內容只有你和維護者看得到。
+2. **電子郵件**：無法使用 GitHub 時，寄到 [yao921024@gmail.com](mailto:yao921024@gmail.com)，主旨開頭加上 `[Security] LINE-skill`。電子郵件不是端對端加密，信裡先簡述問題就好，細節等收到回覆後再提供。
+
+回報時請盡量附上：
 
 - 受影響的檔案與版本（commit）
 - 重現步驟，以及會造成什麼影響
-- 建議的修法（可選）
+- 建議的修法（選填）
 
 重現時請用假的 token 和 secret，不要在回報裡附真的值。
 
+## 處理流程與時限
+
+本專案由個人維護，沒有漏洞獎勵，但會遵守以下時限：
+
+| 階段 | 時限 |
+|---|---|
+| 確認收到並首次回覆 | 收到回報後 14 天內 |
+| 公開漏洞細節 | 修正發布時，最晚在回報後 90 天 |
+
+1. **確認收到**：回覆已收到，並說明初步評估。
+2. **評估**：確認是否屬於漏洞、影響範圍與嚴重程度，必要時向你詢問細節；不屬於漏洞時會說明原因。
+3. **修正**：在私下的 GitHub Security Advisory 中與你討論修正方式，你也可以在其中的私人分支提交修正。
+4. **發布**：把修正合併到 `main`、公開 Security Advisory，適用時透過 GitHub 申請 CVE 編號，並在 [CHANGELOG](https://github.com/Scorpio-meow/LINE-skill/blob/HEAD/CHANGELOG.md) 的 Security 分類記錄。
+5. **致謝**：你願意的話，會在 Advisory 中列名致謝。
+
+修正發布前請不要公開漏洞細節。90 天內來不及修正時，會在期限前向你說明原因，並協商新的公開日期。
+
 ## 範圍
+
+### 範圍內
 
 屬於本專案的漏洞，例如：
 
@@ -28,22 +52,12 @@
 - 路徑穿越或指令注入，例如 `line_docs.py` 的頁面路徑與快取，或 `line_api.py` 的 `--env-file`、`@file` 參數讀寫到預期外的位置。
 - `SKILL.md` 或 `references/` 的指示讓 AI 助理在使用者沒同意的情況下執行寫入操作、洩漏 token，或把查到的文件內容當成指令執行。
 
-不屬於本專案的：
+### 不在範圍內
 
 - **LINE 平台本身**（LINE app、Messaging API、LIFF、LINE Login）的漏洞：請依 LY Corporation 的[官方管道](https://bugbounty.linecorp.com/)回報。
 - **AI 工具本身**（Claude Code、Codex、Copilot 等）的漏洞：請回報給該工具的開發商。
 - **你自己的 token 外洩了**：這不是本專案的漏洞。請立刻到 [LINE Developers Console](https://developers.line.biz/console/) 重新發行或撤銷 token、secret。
 - **gotchas 的建議過時或不夠安全**，但不涉及可被利用的漏洞：開一般 issue 即可（「LINE 規格過時或連結失效」範本）。
-
-## 處理流程
-
-這是個人維護的開源專案，沒有固定的回應時限，收到後會盡快：
-
-1. 確認收到。
-2. 確認問題與影響範圍，必要時向你詢問細節。
-3. 修正後發布新版本、更新 CHANGELOG，並用 GitHub Security Advisory 公開說明；你願意的話，會在公告中致謝。
-
-修正發布前，請不要公開漏洞細節。
 
 ## 使用時保護自己的 token
 
