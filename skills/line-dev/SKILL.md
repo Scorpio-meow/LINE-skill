@@ -1,6 +1,6 @@
 ---
 name: line-dev
-description: Build, review, debug and operate LINE (LY Corporation) bots and apps - Messaging API webhooks, reply/push messages, Flex Messages, rich menus (圖文選單), group-chat bots, LIFF apps and LINE Login - and call the LINE API directly (send a test message, deploy a rich menu, check the monthly quota, set or test the webhook URL). Use this skill whenever the user mentions a LINE Bot, LINE 官方帳號 / LINE Official Account / LINE公式アカウント, channel access token or channel secret, x-line-signature, reply token, push quota, Flex Message, rich menu, LIFF, LINE Login, the LINE Developers Console, migrating off LINE Notify, or a bot in LINE groups (LINE 群組機器人) - even when it looks like a generic webhook, Node, Python or serverless question. Also use it for any question about LINE API limits, pricing or message counting, error codes or event behaviour, because those change often and must be checked against the live official docs.
+description: Build, review, debug and operate LINE (LY Corporation) bots and apps - Messaging API webhooks, reply/push messages, Flex Messages, rich menus (圖文選單), group-chat bots, LIFF apps and LINE Login - and call the LINE API directly (send a test message, deploy a rich menu, check the monthly quota, set or test the webhook URL). Use this skill whenever the user mentions a LINE Bot, LINE 官方帳號 / LINE Official Account / LINE公式アカウント, channel access token or channel secret, x-line-signature, reply token, push quota, Flex Message, rich menu, LIFF, LINE Login, the LINE Developers Console, a LINE Developers notice email (e.g. "update the LIFF SDK"), migrating off LINE Notify, or a bot in LINE groups (LINE 群組機器人) - even when it looks like a generic webhook, Node, Python or serverless question. Also use it for any question about LINE API limits, pricing or message counting, error codes or event behaviour, because those change often and must be checked against the live official docs.
 license: MIT
 compatibility: Scripts need Python 3.8+ (standard library only; git optional for full-text doc search). Doc lookups need web access to raw.githubusercontent.com, github.com (git) or developers.line.biz; API operations need access to api.line.me and a channel access token.
 ---
@@ -17,7 +17,7 @@ Gotcha files (read only the ones that match the task):
 `webhooks-and-hosting.md` (signatures, timeouts, dedupe, Supabase/Vercel/Workers traps) ·
 `messaging.md` (reply vs push, quota, Flex, postbacks, media, long text, quotes/unsend) ·
 `groups-and-mentions.md` (joining, members/profiles, scoping, mentions/textV2) · `rich-menus.md` ·
-`liff-and-login.md` (SDK versions, ID-token verification, expiry/re-login, provider/userId) ·
+`liff-and-login.md` (SDK versions and security updates, ID-token verification, expiry/re-login, provider/userId) ·
 `security-and-architecture.md` (tokens, LLM-bot patterns, testing).
 
 ## The one rule: verify LINE facts against the live docs

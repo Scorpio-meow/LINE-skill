@@ -127,7 +127,8 @@ Common specs: `common-specifications`, `domain-name` (api.line.me vs api-data.li
 ## 4. LIFF
 
 Check `release-notes` first when touching LIFF code: its top banner lists deprecated SDK versions (at the
-time of writing v2.20.0-v2.31.0, deprecated for a security issue - update to v2.31.1+).
+time of writing v2.20.0-v2.31.0, an XSS restricted on the platform around 2026-11-24 - update to v2.31.1+;
+details in `https://developers.line.biz/en/news/2026/10/20/liff-sdk-issue/` and `gotchas/liff-and-login.md`).
 
 Guides (`https://developers.line.biz/en/docs/liff/<page>/`): `overview`, `getting-started`,
 `registering-liff-apps`, `developing-liff-apps` (init, behaviour, closing), `opening-liff-app`

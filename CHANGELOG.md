@@ -16,6 +16,7 @@
 
 ### Changed
 
+- LIFF 踩坑清單補上 LIFF SDK v2.20.0–v2.31.0 的 XSS 漏洞（CVE-2026-112148）與 2026-11-24 前後的外部瀏覽器使用限制：怎麼從 lockfile、CDN 路徑、自架 `sdk.js` 找出實際版本，依整合方式升級並重新部署，以及 v2.31.2 對 query 參數的行為變更；`doc-map.md` 同步更新，skill 描述加上 LINE Developers 通知信。
 - 翻譯檔改用 `_xx` 命名：README 與 `.github/` 的貢獻指南、行為準則、安全政策、無障礙聲明，英、日、泰、印尼、韓文版的檔名從 `README.en.md` 這類改為 `README_en.md`，站內連結一併更新。
 
 ### Removed

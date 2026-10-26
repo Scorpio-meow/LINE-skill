@@ -14,10 +14,36 @@ Field-tested failure modes from production LIFF apps, checked against the offici
 
 ## 1. SDK version first
 
-Check the banner at the top of `docs/liff/release-notes/` before touching LIFF code: LINE deprecates SDK
-versions, sometimes for security reasons (at the time of writing, v2.20.0-v2.31.0 were deprecated on
-2026-09-30 for an issue with potential security implications - update to v2.31.1 or later). Pin the version
-in `package.json`/the CDN path and tell the user when theirs is affected.
+Check the banner at the top of `docs/liff/release-notes/` and the LIFF-tagged news before touching LIFF code:
+LINE deprecates SDK versions, sometimes for security reasons, and later restricts them on the platform side.
+Pin the version in `package.json`/the CDN path and tell the user when theirs is affected.
+
+**The v2.20.0-v2.31.0 XSS (at the time of writing).** Deprecated 2026-09-30 (fixed in v2.31.1), disclosed
+2026-10-20 as an XSS (CVE-2026-112148): a LIFF app or LINE MINI App opened in an external browser from a
+crafted URL can run attacker JavaScript on the app's domain and read access tokens and on-screen data. Opening
+the **endpoint URL** (not the `liff.line.me` LIFF URL) in LINE's in-app browser counts as an external browser
+too. LINE plans to restrict these versions **around 2026-11-24 (may move earlier without notice)**: after
+that, LINE Login and other LIFF features may stop working for them in external browsers. The restriction
+doesn't remove the risk - update now. LINE also emails affected channels' admins ("Update LIFF SDK before
+external browser restrictions"); treat such an email as "this channel still serves a vulnerable version".
+Re-check: `news/2026/10/20/liff-sdk-issue/`, `docs/liff/release-notes/`.
+
+When the user needs to find and fix affected code:
+- **Find every copy.** The version that ships is what matters, not the range in `package.json`: read the
+  resolved `@line/liff` version in the lockfile (`bun.lock`, `package-lock.json`, `yarn.lock`,
+  `pnpm-lock.yaml`), including LIFF plugins/templates that depend on it; grep HTML/templates for
+  `static.line-scdn.net/liff/edge/versions/<x.y.z>/sdk.js`; look for vendored or self-hosted `sdk.js` copies.
+  At runtime `liff.getVersion()` prints the loaded version. Check every LIFF app / MINI App on the channel.
+- **Fix by integration type.** CDN edge path (`/liff/edge/2/sdk.js`) is already updated - nothing to do.
+  CDN fixed path: change the version in the URL. npm: bump `@line/liff` (using the project's package manager),
+  make sure the lockfile changes, then rebuild and **redeploy** - an updated lockfile in git doesn't help users
+  until the new bundle is live (watch for CDN/service-worker caches serving the old bundle).
+- **Which version.** v2.31.1 is the minimum fix. Newer releases may change behaviour: v2.31.2 stopped
+  replacing `?` with `&` in LIFF URL query values in the LIFF browser, which affects apps that pass URLs
+  (e.g. `return_url`) as query params - recommend the current latest but tell the user to test that, or pin
+  the minimum fix if they can't test before the deadline.
+- **Afterwards.** The news reports no confirmed attacks and doesn't ask for anything beyond the update; say
+  that rather than inventing incident steps. Confirm with `liff.getVersion()` on the deployed site.
 
 ## 2. Identity on the server
 
